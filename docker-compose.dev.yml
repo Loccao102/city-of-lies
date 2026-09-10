@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: cityoflies-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cityoflies
+      POSTGRES_USER: cityoflies
+      POSTGRES_PASSWORD: cityoflies_dev_only
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-dev-data:/var/lib/postgresql/data
+      - ./backend/db/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cityoflies -d cityoflies"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  postgres-dev-data:

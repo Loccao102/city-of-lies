@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend-tests:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.27.x"
+          cache-dependency-path: backend/go.sum
+
+      - name: Validate Scenario Data
+        working-directory: ./backend
+        run: go run ./cmd/scenario-check ../data/scenarios/riverside-factory
+
+      - name: Run Go Vet
+        working-directory: ./backend
+        run: go vet ./...
+
+      - name: Run Go Unit Tests
+        working-directory: ./backend
+        run: go test -v ./...

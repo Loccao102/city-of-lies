@@ -1,0 +1,218 @@
+[
+  {
+    "agent_id": "agent_security_guard",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.90,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_security_guard",
+    "claim_id": "claim_no_major_explosion",
+    "confidence": 0.80,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_security_guard",
+    "claim_id": "claim_minor_injuries",
+    "confidence": 0.70,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_factory_worker_a",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_factory_worker_a",
+    "claim_id": "claim_electrical_origin",
+    "confidence": 0.72,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_factory_worker_a",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.65,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_factory_worker_b",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.75,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "agent_factory_worker_b",
+    "claim_id": "claim_chemical_explosion",
+    "confidence": 0.35,
+    "basis": "speculation"
+  },
+  {
+    "agent_id": "agent_firefighter",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.98,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_firefighter",
+    "claim_id": "claim_electrical_origin",
+    "confidence": 0.90,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_firefighter",
+    "claim_id": "claim_no_major_explosion",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_firefighter",
+    "claim_id": "claim_no_chemical_release",
+    "confidence": 0.90,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_paramedic",
+    "claim_id": "claim_minor_injuries",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_paramedic",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_shop_owner",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.60,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "agent_resident",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.70,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_resident",
+    "claim_id": "claim_no_chemical_release",
+    "confidence": 0.50,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_blogger",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.85,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "agent_blogger",
+    "claim_id": "claim_chemical_explosion",
+    "confidence": 0.40,
+    "basis": "speculation"
+  },
+  {
+    "agent_id": "agent_influencer",
+    "claim_id": "claim_chemical_explosion",
+    "confidence": 0.30,
+    "basis": "social_post"
+  },
+  {
+    "agent_id": "agent_taxi_driver",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.60,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "agent_student",
+    "claim_id": "claim_rumor_escalated_without_new_source",
+    "confidence": 0.60,
+    "basis": "digital_trace"
+  },
+  {
+    "agent_id": "agent_journalist",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.75,
+    "basis": "investigation"
+  },
+  {
+    "agent_id": "agent_factory_manager",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_factory_manager",
+    "claim_id": "claim_electrical_fault_preexisting",
+    "confidence": 0.90,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_technician",
+    "claim_id": "claim_electrical_fault_preexisting",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_technician",
+    "claim_id": "claim_electrical_origin",
+    "confidence": 0.85,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_nurse",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_nurse",
+    "claim_id": "claim_minor_injuries",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_vendor",
+    "claim_id": "claim_minor_injuries",
+    "confidence": 0.65,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_vendor",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.60,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_retired_teacher",
+    "claim_id": "claim_no_chemical_release",
+    "confidence": 0.65,
+    "basis": "analytical"
+  },
+  {
+    "agent_id": "agent_delivery_driver",
+    "claim_id": "claim_electrical_fault_preexisting",
+    "confidence": 0.40,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_community_leader",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.60,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "agent_photographer",
+    "claim_id": "claim_fire_occurred",
+    "confidence": 0.90,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "agent_photographer",
+    "claim_id": "claim_no_major_explosion",
+    "confidence": 0.85,
+    "basis": "direct_observation"
+  }
+]

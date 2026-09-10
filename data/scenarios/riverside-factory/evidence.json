@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ev_cctv_gate",
+    "name": "CCTV cổng nhà máy",
+    "description": "Video camera an ninh 17:56–18:05 cho thấy không có sóng xung kích hay quả cầu lửa; công nhân tự chạy thoát ra ngoài an toàn.",
+    "location_id": "factory_security_room",
+    "reliability": 0.94,
+    "source_category": "visual_record",
+    "supports": ["claim_fire_occurred", "claim_no_major_explosion"],
+    "contradicts": ["claim_chemical_explosion", "claim_multiple_deaths"],
+    "unlock_condition": "Nói chuyện với Minh hoặc kiểm tra phòng an ninh."
+  },
+  {
+    "id": "ev_fire_report",
+    "name": "Biên bản sơ bộ đội cứu hỏa",
+    "description": "Biên bản khám nghiệm sơ bộ: Điểm cháy tập trung quanh tủ phân phối điện DB-4, không phát hiện tàn tích chất nổ hóa học.",
+    "location_id": "fire_station",
+    "reliability": 0.98,
+    "source_category": "official_response",
+    "supports": ["claim_electrical_origin", "claim_fire_occurred"],
+    "contradicts": ["claim_chemical_explosion"],
+    "unlock_condition": "Phỏng vấn Quang khi có bằng chứng hoặc đủ độ tin cậy."
+  },
+  {
+    "id": "ev_hospital_summary",
+    "name": "Tóm tắt tiếp nhận bệnh viện",
+    "description": "Báo cáo nội bộ phòng cấp cứu: 4 ca nhẹ (2 ngạt khói nhẹ, 1 trầy xước, 1 hoảng loạn), 0 ca tử vong, 0 bỏng hóa chất.",
+    "location_id": "hospital",
+    "reliability": 0.99,
+    "source_category": "medical",
+    "supports": ["claim_zero_fatalities", "claim_minor_injuries"],
+    "contradicts": ["claim_multiple_deaths"],
+    "unlock_condition": "Phỏng vấn Mai hoặc Hà tại bệnh viện."
+  },
+  {
+    "id": "ev_maintenance_ticket",
+    "name": "Ticket bảo trì DB-4",
+    "description": "Phiếu yêu cầu kỹ thuật: Tủ điện DB-4 bị quá nhiệt và đánh tia lửa bất thường, bị quá hạn xử lý 12 ngày do chờ vật tư.",
+    "location_id": "factory_office",
+    "reliability": 0.91,
+    "source_category": "technical_record",
+    "supports": ["claim_electrical_fault_preexisting"],
+    "contradicts": ["claim_chemical_explosion"],
+    "unlock_condition": "Tìm trong phòng kỹ thuật sau khi trao đổi với Đức hoặc Sơn."
+  },
+  {
+    "id": "ev_panel_photo",
+    "name": "Ảnh tủ điện sau cháy",
+    "description": "Hình ảnh cận cảnh chụp tủ điện DB-4 bị cháy nám đen với vết phóng hồ quang điện đặc trưng.",
+    "location_id": "factory_storage",
+    "reliability": 0.93,
+    "source_category": "visual_record",
+    "supports": ["claim_electrical_origin"],
+    "contradicts": ["claim_chemical_explosion"],
+    "unlock_condition": "Kiểm tra nhà kho sau khi hiện trường an toàn."
+  },
+  {
+    "id": "ev_photo_sequence",
+    "name": "Chuỗi ảnh timestamp của Tùng",
+    "description": "Tập hợp 6 bức ảnh liên tiếp chụp từ lúc bắt đầu bốc khói: khói đen bốc lên từ từ, không có hiện tượng nổ tung phá hủy cấu trúc cửa kho.",
+    "location_id": "factory_gate",
+    "reliability": 0.88,
+    "source_category": "visual_record",
+    "supports": ["claim_fire_occurred", "claim_no_major_explosion"],
+    "contradicts": ["claim_chemical_explosion"],
+    "unlock_condition": "Phỏng vấn nhiếp ảnh gia Tùng Lâm tại cổng nhà máy."
+  },
+  {
+    "id": "ev_worker_testimony",
+    "name": "Lời khai trực tiếp của Lan",
+    "description": "Ghi nhận lời khai của Lan Phạm: Nghe tiếng nổ tách nhỏ tại tủ điện và tia lửa lóe sáng; không thấy bất kỳ ai bị thương nặng.",
+    "location_id": "factory_yard",
+    "reliability": 0.78,
+    "source_category": "direct_witness",
+    "supports": ["claim_electrical_origin", "claim_zero_fatalities"],
+    "contradicts": ["claim_chemical_explosion"],
+    "unlock_condition": "Phỏng vấn công nhân Lan tại sân nhà máy."
+  },
+  {
+    "id": "ev_dispatch_log",
+    "name": "Nhật ký điều xe cấp cứu",
+    "description": "Hệ thống tổng đài 115 ghi nhận điều 2 xe cứu thương đến Riverside, tiếp nhận và chuyển viện đúng 4 bệnh nhân nhẹ.",
+    "location_id": "hospital",
+    "reliability": 0.96,
+    "source_category": "medical",
+    "supports": ["claim_minor_injuries", "claim_zero_fatalities"],
+    "contradicts": ["claim_multiple_deaths"],
+    "unlock_condition": "Kiểm tra sau khi đã có tóm tắt bệnh viện và hỏi nhân viên cấp cứu."
+  },
+  {
+    "id": "ev_blog_versions",
+    "name": "Lịch sử chỉnh sửa bài blog",
+    "description": "Bản lưu trữ lịch sử sửa bài viết của Khoa: từ 'tiếng nổ' thành 'nghi nổ hóa chất' rồi thành 'nguồn tin nói có thương vong' mà không kèm nguồn kiểm chứng mới.",
+    "location_id": "news_office",
+    "reliability": 0.86,
+    "source_category": "digital_trace",
+    "supports": ["claim_rumor_escalated_without_new_source"],
+    "contradicts": ["claim_blogger_had_verified_deaths"],
+    "unlock_condition": "Kiểm tra máy tính tòa soạn cùng sinh viên An."
+  },
+  {
+    "id": "ev_air_sensor",
+    "name": "Cảm biến môi trường khu dân cư",
+    "description": "Dữ liệu trạm quan trắc không khí khu dân cư: Không ghi nhận nồng độ khí độc hữu cơ hoặc hóa chất độc hại, chỉ tăng nhẹ hạt bụi khói PM2.5.",
+    "location_id": "residential",
+    "reliability": 0.84,
+    "source_category": "environmental_sensor",
+    "supports": ["claim_no_chemical_release"],
+    "contradicts": ["claim_toxic_cloud"],
+    "unlock_condition": "Được Thầy Bình chỉ vị trí trạm cảm biến môi trường."
+  }
+]

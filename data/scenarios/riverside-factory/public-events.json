@@ -1,0 +1,72 @@
+[
+  {
+    "game_second": 120,
+    "event_type": "emergency_call",
+    "headline": "Bảo vệ nhà máy gọi lực lượng cứu hỏa",
+    "description": "Trung tâm điều phối khẩn cấp nhận tin báo có sự cố chập điện và khói bốc lên tại nhà kho Riverside.",
+    "location_id": "factory_gate"
+  },
+  {
+    "game_second": 300,
+    "event_type": "fire_unit_arrived",
+    "headline": "Xe cứu hỏa đầu tiên có mặt tại hiện trường",
+    "description": "Đội cứu hỏa tiếp cận nhà kho và triển khai phương án khống chế ngọn lửa.",
+    "location_id": "factory_gate"
+  },
+  {
+    "game_second": 360,
+    "event_type": "ambulance_arrived",
+    "headline": "Xe cấp cứu xuất hiện tại cổng nhà máy",
+    "description": "Nhân viên y tế chuẩn bị cáng và bình oxy tiếp nhận người hít phải khói.",
+    "location_id": "factory_gate"
+  },
+  {
+    "game_second": 420,
+    "event_type": "rumor_seed",
+    "headline": "Công nhân Lan trao đổi với Hùng",
+    "description": "Lan kể lại việc thấy tủ điện tóe lửa và phát tiếng nổ chập aptomat.",
+    "location_id": "cafe"
+  },
+  {
+    "game_second": 480,
+    "event_type": "rumor_transmission",
+    "headline": "Hùng kể lại thông tin cho chủ quán Thảo",
+    "description": "Tin đồn bắt đầu biến thể thành 'trong nhà máy xảy ra nổ lớn'.",
+    "location_id": "market"
+  },
+  {
+    "game_second": 720,
+    "event_type": "blog_post",
+    "headline": "Blogger Khoa Bùi đăng tin ban đầu",
+    "description": "Bài đăng: 'Sự cố lớn tại Riverside Factory, nghe tiếng nổ, xe cứu hỏa và cấp cứu đang có mặt.'",
+    "location_id": "news_office"
+  },
+  {
+    "game_second": 840,
+    "event_type": "headline_update",
+    "headline": "Khoa cập nhật tiêu đề: 'Nghi vấn nổ hóa chất'",
+    "description": "Tiêu đề bài viết được chỉnh sửa thành nghi vấn nổ hóa chất gây hoang mang dư luận.",
+    "location_id": "news_office"
+  },
+  {
+    "game_second": 900,
+    "event_type": "social_viral",
+    "headline": "Influencer Vy Hoàng chia sẻ bài viết",
+    "description": "Vy Hoàng chia sẻ bài đăng kèm câu hỏi kích thích tương tác: 'Mọi người ở gần có an toàn không?'",
+    "location_id": "public_square"
+  },
+  {
+    "game_second": 1080,
+    "event_type": "official_statement",
+    "headline": "Quản lý nhà máy Sơn Vương phát biểu né tránh",
+    "description": "Ông Sơn tuyên bố: 'Chúng tôi đang kiểm tra và chưa thể bình luận về nguyên nhân hay thương vong.'",
+    "location_id": "factory_office"
+  },
+  {
+    "game_second": 1200,
+    "event_type": "livestream_claim",
+    "headline": "Vy Hoàng phát sóng trực tiếp nhắc đến tin đồn thương vong",
+    "description": "Vy nói trong livestream: 'Có thông tin chưa xác nhận nói rằng đã có người chết.'",
+    "location_id": "public_square"
+  }
+]

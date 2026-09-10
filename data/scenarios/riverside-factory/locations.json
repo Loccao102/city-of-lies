@@ -1,0 +1,86 @@
+[
+  {
+    "id": "factory_gate",
+    "name": "Cổng Nhà Máy Riverside",
+    "description": "Cổng chính ra vào nhà máy Riverside, nơi tập trung xe cứu thương và bảo vệ.",
+    "position": {"x": -15, "y": 0, "z": -10},
+    "connected_locations": ["factory_yard", "factory_security_room", "factory_office", "public_square"]
+  },
+  {
+    "id": "factory_yard",
+    "name": "Sân Nhà Máy",
+    "description": "Khu vực sân tập kết và sơ tán công nhân.",
+    "position": {"x": -20, "y": 0, "z": -15},
+    "connected_locations": ["factory_gate", "factory_storage"]
+  },
+  {
+    "id": "factory_office",
+    "name": "Văn Phòng Ban Quản Lý",
+    "description": "Văn phòng quản lý và bộ phận kỹ thuật bảo trì.",
+    "position": {"x": -15, "y": 0, "z": -25},
+    "connected_locations": ["factory_gate", "factory_storage"]
+  },
+  {
+    "id": "factory_storage",
+    "name": "Nhà Kho Lưu Trữ",
+    "description": "Khu nhà kho nơi xảy ra sự cố điện ở tủ DB-4.",
+    "position": {"x": -25, "y": 0, "z": -25},
+    "connected_locations": ["factory_yard", "factory_office"]
+  },
+  {
+    "id": "factory_security_room",
+    "name": "Phòng Bảo Vệ & Giám Sát",
+    "description": "Phòng bảo vệ chứa màn hình giám sát camera CCTV.",
+    "position": {"x": -10, "y": 0, "z": -8},
+    "connected_locations": ["factory_gate"]
+  },
+  {
+    "id": "fire_station",
+    "name": "Trạm Cứu Hỏa Khu Vực",
+    "description": "Trạm chỉ huy đội phòng cháy chữa cháy phụ trách khu công nghiệp.",
+    "position": {"x": -5, "y": 0, "z": 20},
+    "connected_locations": ["public_square", "factory_gate"]
+  },
+  {
+    "id": "hospital",
+    "name": "Bệnh Viện Đa Khoa Quận",
+    "description": "Nơi tiếp nhận cấp cứu và điều trị người bị ảnh hưởng.",
+    "position": {"x": 20, "y": 0, "z": 15},
+    "connected_locations": ["public_square", "residential"]
+  },
+  {
+    "id": "market",
+    "name": "Chợ Dân Sinh",
+    "description": "Khu chợ đông đúc, tiểu thương trao đổi thông tin nhanh chóng.",
+    "position": {"x": 10, "y": 0, "z": -15},
+    "connected_locations": ["cafe", "public_square", "residential"]
+  },
+  {
+    "id": "cafe",
+    "name": "Quán Cà Phê Bờ Sông",
+    "description": "Điểm tụ tập quen thuộc của công nhân tan ca và sinh viên.",
+    "position": {"x": 5, "y": 0, "z": -5},
+    "connected_locations": ["market", "public_square", "news_office"]
+  },
+  {
+    "id": "news_office",
+    "name": "Tòa Soạn Tin Địa Phương",
+    "description": "Văn phòng làm việc của phóng viên và blogger địa phương.",
+    "position": {"x": 18, "y": 0, "z": -5},
+    "connected_locations": ["cafe", "public_square"]
+  },
+  {
+    "id": "public_square",
+    "name": "Quảng Trường Trung Tâm",
+    "description": "Giao lộ chính của khu Riverside, nơi influencer và người dân thường tụ họp.",
+    "position": {"x": 0, "y": 0, "z": 0},
+    "connected_locations": ["factory_gate", "fire_station", "hospital", "market", "cafe", "news_office", "residential"]
+  },
+  {
+    "id": "residential",
+    "name": "Khu Dân Cư Ven Sông",
+    "description": "Khu nhà ở của các hộ dân gần nhà máy.",
+    "position": {"x": 12, "y": 0, "z": 22},
+    "connected_locations": ["hospital", "market", "public_square"]
+  }
+]

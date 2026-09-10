@@ -1,0 +1,134 @@
+[
+  {
+    "from_agent_id": "agent_factory_worker_a",
+    "to_agent_id": "agent_factory_worker_b",
+    "trust": 0.78,
+    "reason": "Đồng nghiệp thân"
+  },
+  {
+    "from_agent_id": "agent_factory_worker_b",
+    "to_agent_id": "agent_factory_worker_a",
+    "trust": 0.75,
+    "reason": "Đồng nghiệp thân"
+  },
+  {
+    "from_agent_id": "agent_factory_worker_b",
+    "to_agent_id": "agent_shop_owner",
+    "trust": 0.72,
+    "reason": "Thường uống nước và kể chuyện"
+  },
+  {
+    "from_agent_id": "agent_shop_owner",
+    "to_agent_id": "agent_vendor",
+    "trust": 0.81,
+    "reason": "Quan hệ hàng xóm"
+  },
+  {
+    "from_agent_id": "agent_vendor",
+    "to_agent_id": "agent_shop_owner",
+    "trust": 0.80,
+    "reason": "Quan hệ hàng xóm"
+  },
+  {
+    "from_agent_id": "agent_blogger",
+    "to_agent_id": "agent_influencer",
+    "trust": 0.74,
+    "reason": "Từng hợp tác nội dung"
+  },
+  {
+    "from_agent_id": "agent_influencer",
+    "to_agent_id": "agent_blogger",
+    "trust": 0.70,
+    "reason": "Thường lấy tin từ blogger"
+  },
+  {
+    "from_agent_id": "agent_student",
+    "to_agent_id": "agent_blogger",
+    "trust": 0.41,
+    "reason": "Theo dõi nhưng không hoàn toàn tin"
+  },
+  {
+    "from_agent_id": "agent_journalist",
+    "to_agent_id": "agent_blogger",
+    "trust": 0.26,
+    "reason": "Cạnh tranh nguồn tin"
+  },
+  {
+    "from_agent_id": "agent_community_leader",
+    "to_agent_id": "agent_retired_teacher",
+    "trust": 0.83,
+    "reason": "Tin tưởng lẫn nhau"
+  },
+  {
+    "from_agent_id": "agent_retired_teacher",
+    "to_agent_id": "agent_community_leader",
+    "trust": 0.85,
+    "reason": "Tin tưởng lẫn nhau"
+  },
+  {
+    "from_agent_id": "agent_community_leader",
+    "to_agent_id": "agent_journalist",
+    "trust": 0.76,
+    "reason": "Nguồn thông tin đáng tin"
+  },
+  {
+    "from_agent_id": "agent_factory_manager",
+    "to_agent_id": "agent_technician",
+    "trust": 0.52,
+    "reason": "Quan hệ công việc căng thẳng"
+  },
+  {
+    "from_agent_id": "agent_technician",
+    "to_agent_id": "agent_factory_manager",
+    "trust": 0.45,
+    "reason": "Bất an về việc bảo trì quá hạn"
+  },
+  {
+    "from_agent_id": "agent_firefighter",
+    "to_agent_id": "agent_paramedic",
+    "trust": 0.88,
+    "reason": "Phối hợp nghề nghiệp"
+  },
+  {
+    "from_agent_id": "agent_paramedic",
+    "to_agent_id": "agent_firefighter",
+    "trust": 0.88,
+    "reason": "Phối hợp nghề nghiệp"
+  },
+  {
+    "from_agent_id": "agent_paramedic",
+    "to_agent_id": "agent_nurse",
+    "trust": 0.92,
+    "reason": "Đồng nghiệp y tế"
+  },
+  {
+    "from_agent_id": "agent_nurse",
+    "to_agent_id": "agent_paramedic",
+    "trust": 0.92,
+    "reason": "Đồng nghiệp y tế"
+  },
+  {
+    "from_agent_id": "agent_resident",
+    "to_agent_id": "agent_retired_teacher",
+    "trust": 0.73,
+    "reason": "Hàng xóm kính trọng"
+  },
+  {
+    "from_agent_id": "agent_photographer",
+    "to_agent_id": "agent_blogger",
+    "trust": 0.66,
+    "reason": "Bán ảnh và chia sẻ tin"
+  },
+  {
+    "from_agent_id": "agent_taxi_driver",
+    "to_agent_id": "agent_vendor",
+    "trust": 0.63,
+    "reason": "Khách quen uống nước"
+  },
+  {
+    "from_agent_id": "agent_delivery_driver",
+    "to_agent_id": "agent_shop_owner",
+    "trust": 0.69,
+    "reason": "Giao hàng thường xuyên"
+  }
+]

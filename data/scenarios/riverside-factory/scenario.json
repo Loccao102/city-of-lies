@@ -1,0 +1,35 @@
+{
+  "id": "riverside-factory",
+  "title": "Riverside Factory Incident",
+  "version": 1,
+  "description": "At 17:58, an electrical fault occurred at Riverside Factory storage. Misinformation threatens to convince the public that a fatal chemical explosion occurred.",
+  "primary_false_narrative": {
+    "adoption_threshold": 0.65,
+    "defeat_ratio": 0.75,
+    "claims": [
+      {
+        "claim_id": "claim_chemical_explosion",
+        "weight": 0.35
+      },
+      {
+        "claim_id": "claim_multiple_deaths",
+        "weight": 0.40
+      },
+      {
+        "claim_id": "claim_company_coverup",
+        "weight": 0.25
+      }
+    ]
+  },
+  "required_truth_fields": [
+    "event_type",
+    "cause_category",
+    "major_explosion",
+    "fatalities"
+  ],
+  "bonus_truth_fields": [
+    "chemical_release",
+    "management_issue",
+    "origin"
+  ]
+}

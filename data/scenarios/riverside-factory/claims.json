@@ -1,0 +1,93 @@
+[
+  {
+    "id": "claim_fire_occurred",
+    "text": "Có cháy tại kho Riverside",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_electrical_origin",
+    "text": "Điểm khởi phát nằm gần tủ phân phối điện DB-4",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_electrical_fault_preexisting",
+    "text": "DB-4 đã có cảnh báo quá nhiệt trước sự cố",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_minor_injuries",
+    "text": "Có một số ca bị thương nhẹ do khói/sơ tán",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_zero_fatalities",
+    "text": "Không có người tử vong",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_no_major_explosion",
+    "text": "Không có vụ nổ lớn",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_no_chemical_release",
+    "text": "Không có bằng chứng rò rỉ hóa chất nguy hiểm",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_chemical_explosion",
+    "text": "Nhà máy xảy ra nổ hóa chất",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.35
+  },
+  {
+    "id": "claim_multiple_deaths",
+    "text": "Nhiều công nhân đã chết",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.40
+  },
+  {
+    "id": "claim_company_coverup",
+    "text": "Công ty đang che giấu số người chết",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.25
+  },
+  {
+    "id": "claim_toxic_cloud",
+    "text": "Đám mây độc đang lan vào khu dân cư",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_blogger_had_verified_deaths",
+    "text": "Blogger có nguồn xác nhận người chết",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_rumor_escalated_without_new_source",
+    "text": "Tin đồn tăng mức nghiêm trọng dù không có nguồn mới",
+    "classification": "true",
+    "role": "meta",
+    "weight": 0.0
+  }
+]

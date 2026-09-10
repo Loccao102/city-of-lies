@@ -1,0 +1,52 @@
+{
+  "event_type": {
+    "type": "enum",
+    "label": "Bản chất sự cố",
+    "answer": "fire",
+    "options": [
+      {"value": "fire", "label": "Cháy cục bộ"},
+      {"value": "chemical_explosion", "label": "Nổ hóa chất"},
+      {"value": "gas_explosion", "label": "Nổ khí gas"},
+      {"value": "unknown", "label": "Chưa xác định"}
+    ]
+  },
+  "cause_category": {
+    "type": "enum",
+    "label": "Nguyên nhân chính",
+    "answer": "electrical_fault",
+    "options": [
+      {"value": "electrical_fault", "label": "Sự cố chập điện tủ phân phối"},
+      {"value": "chemical_reaction", "label": "Phản ứng hóa chất nguy hiểm"},
+      {"value": "arson", "label": "Cố ý phóng hỏa"},
+      {"value": "unknown", "label": "Không rõ"}
+    ]
+  },
+  "major_explosion": {
+    "type": "boolean",
+    "label": "Có vụ nổ lớn phá hủy cấu trúc không?",
+    "answer": false
+  },
+  "fatalities": {
+    "type": "integer",
+    "label": "Số người tử vong thực tế",
+    "answer": 0,
+    "min": 0,
+    "max": 20
+  },
+  "chemical_release": {
+    "type": "boolean",
+    "label": "Có rò rỉ đám mây khí độc ra khu dân cư không?",
+    "answer": false
+  },
+  "management_issue": {
+    "type": "enum",
+    "label": "Trách nhiệm quản lý của nhà máy",
+    "answer": "delayed_maintenance",
+    "options": [
+      {"value": "delayed_maintenance", "label": "Trì hoãn bảo trì thiết bị điện (12 ngày)"},
+      {"value": "illegal_storage", "label": "Tàng trữ hóa chất cấm trái phép"},
+      {"value": "worker_negligence", "label": "Công nhân vi phạm quy trình"},
+      {"value": "none", "label": "Không có sai phạm"}
+    ]
+  }
+}
