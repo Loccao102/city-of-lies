@@ -10,8 +10,20 @@ import (
 )
 
 func TestSimulationEngineProgression(t *testing.T) {
-	scenarioDir := filepath.Join("..", "..", "..", "..", "data", "scenarios", "riverside-factory")
-	bundle, err := scenario.LoadScenario(scenarioDir)
+	candidates := []string{
+		filepath.Join("..", "..", "..", "..", "data", "scenarios", "riverside-factory"),
+		filepath.Join("..", "..", "data", "scenarios", "riverside-factory"),
+		filepath.Join("..", "data", "scenarios", "riverside-factory"),
+		filepath.Join("data", "scenarios", "riverside-factory"),
+	}
+	var bundle *scenario.ScenarioBundle
+	var err error
+	for _, c := range candidates {
+		bundle, err = scenario.LoadScenario(c)
+		if err == nil {
+			break
+		}
+	}
 	if err != nil {
 		t.Fatalf("failed to load scenario: %v", err)
 	}

@@ -7,6 +7,7 @@ import {
 } from "@/types/game";
 import { GameWebSocket } from "@/services/websocket";
 import { getNotebook, getAgents } from "@/services/api";
+import { sound } from "@/services/sound";
 
 export interface RumorPulse {
   id: string;
@@ -88,6 +89,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       const { type, payload, game_second } = msg;
 
       if (type === "belief_stats.updated") {
+        sound.updateTension(payload.primary_false_narrative_ratio);
         set((state) => {
           if (!state.session) return state;
           return {
@@ -101,6 +103,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
           };
         });
       } else if (type === "rumor.visualized") {
+        sound.playRumorAlert();
         get().addPulse({
           speakerAgentId: payload.speaker_agent_id,
           listenerAgentId: payload.listener_agent_id,
@@ -109,6 +112,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
           locationId: payload.location_id,
           category: payload.category,
         });
+      } else if (type === "public_event.occurred") {
+        const title = (payload.title ?? "").toLowerCase();
+        if (title.includes("cứu hỏa") || title.includes("cứu thương") || title.includes("siren") || title.includes("fire")) {
+          sound.playSiren();
+        }
       } else if (type === "session.status_changed") {
         set((state) => {
           if (!state.session) return state;
@@ -120,6 +128,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
           };
         });
       } else if (type === "game.won" || type === "game.lost") {
+        if (type === "game.won") {
+          sound.playVictory();
+        } else {
+          sound.playDefeat();
+        }
         set((state) => {
           if (!state.session) return state;
           return {

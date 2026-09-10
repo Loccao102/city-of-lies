@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useGameStore } from "@/store/gameStore";
 import { useUIStore } from "@/store/uiStore";
+import { sound } from "@/services/sound";
 import {
   Clock,
   AlertTriangle,
@@ -11,12 +12,24 @@ import {
   BookOpen,
   Send,
   Flag,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 
 export function TopBar() {
   const session = useGameStore((s) => s.session);
   const { openNotebookModal, openCorrectionModal, openSubmitTruthModal } =
     useUIStore();
+  const [isMuted, setIsMuted] = useState(sound.getIsMuted());
+
+  const handleToggleAudio = () => {
+    sound.resume();
+    const muted = sound.toggleMute();
+    setIsMuted(muted);
+    if (!muted) {
+      sound.playClick();
+    }
+  };
 
   if (!session) return null;
 
@@ -122,10 +135,13 @@ export function TopBar() {
         </div>
       </div>
 
-      {/* Action Buttons */}
+      {/* Action Buttons & Audio Toggle */}
       <div className="flex items-center gap-3">
         <button
-          onClick={() => openNotebookModal("evidence")}
+          onClick={() => {
+            sound.playPaperRustle();
+            openNotebookModal("evidence");
+          }}
           className="flex items-center gap-2 px-3.5 py-1.5 bg-surface-elevated hover:bg-surface-border text-gray-200 text-xs font-medium rounded-lg border border-white/10 transition-colors shadow-sm"
         >
           <BookOpen className="w-4 h-4 text-truth-glow" />
@@ -133,7 +149,10 @@ export function TopBar() {
         </button>
 
         <button
-          onClick={openCorrectionModal}
+          onClick={() => {
+            sound.playClick();
+            openCorrectionModal();
+          }}
           className="flex items-center gap-2 px-3.5 py-1.5 bg-amber-950/40 hover:bg-amber-900/60 text-amber-200 text-xs font-medium rounded-lg border border-amber-600/40 transition-colors shadow-sm"
         >
           <Send className="w-4 h-4 text-amber-400" />
@@ -141,11 +160,29 @@ export function TopBar() {
         </button>
 
         <button
-          onClick={openSubmitTruthModal}
+          onClick={() => {
+            sound.playClick();
+            openSubmitTruthModal();
+          }}
           className="flex items-center gap-2 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-lg shadow-md transition-all glow-truth"
         >
           <Flag className="w-4 h-4" />
           Nộp sự thật
+        </button>
+
+        <div className="w-[1px] h-6 bg-white/10 mx-1" />
+
+        {/* Audio Mute/Unmute */}
+        <button
+          onClick={handleToggleAudio}
+          title={isMuted ? "Bật âm thanh (Sound FX & Ambient)" : "Tắt âm thanh"}
+          className={`p-2 rounded-lg border transition-all ${
+            isMuted
+              ? "bg-red-950/40 border-red-500/30 text-red-400 hover:bg-red-900/50"
+              : "bg-surface-elevated border-white/10 text-truth-glow hover:bg-surface-border"
+          }`}
+        >
+          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-pulse" />}
         </button>
       </div>
     </header>

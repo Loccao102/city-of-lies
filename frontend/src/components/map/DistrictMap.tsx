@@ -5,6 +5,8 @@ import * as THREE from "three";
 import { useGameStore } from "@/store/gameStore";
 import { useUIStore } from "@/store/uiStore";
 
+import { sound } from "@/services/sound";
+
 // The 12 Riverside district locations with coordinates
 export const DISTRICT_LOCATIONS = [
   { id: "factory_gate", name: "Cổng Nhà Máy", x: -24, z: -16, color: 0x4a5568, category: "factory" },
@@ -20,6 +22,16 @@ export const DISTRICT_LOCATIONS = [
   { id: "cafe", name: "Quán Cà Phê Vỉa Hè", x: 10, z: -4, color: 0xd69e2e, category: "public" },
   { id: "residential_street", name: "Khu Dân Cư", x: -22, z: 14, color: 0x4a5568, category: "residential" },
 ];
+
+function getRoleColor(role: string): number {
+  const r = (role || "").toLowerCase();
+  if (r.includes("cứu hỏa") || r.includes("lính cứu hỏa") || r.includes("fire")) return 0xe53e3e; // Crimson
+  if (r.includes("bác sĩ") || r.includes("y tá") || r.includes("y tế") || r.includes("doctor")) return 0x319795; // Medical teal
+  if (r.includes("phóng viên") || r.includes("blogger") || r.includes("influencer") || r.includes("báo")) return 0x9f7aea; // Purple
+  if (r.includes("bảo vệ") || r.includes("an ninh") || r.includes("công an") || r.includes("security")) return 0x3182ce; // Blue
+  if (r.includes("công nhân") || r.includes("quản lý") || r.includes("worker") || r.includes("kho")) return 0xd69e2e; // Amber
+  return 0x4fd1c5; // Cyan / Civilian
+}
 
 export function DistrictMap() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -71,6 +83,23 @@ export function DistrictMap() {
     const streetLight = new THREE.PointLight(0x4fd1c5, 1.5, 40);
     streetLight.position.set(0, 10, 5);
     scene.add(streetLight);
+
+    // Emergency Strobe Lights at Factory Gate and Clinic/Hospital
+    const factoryStrobeRed = new THREE.PointLight(0xff2222, 2.5, 35);
+    factoryStrobeRed.position.set(-24, 8, -16);
+    scene.add(factoryStrobeRed);
+
+    const factoryStrobeBlue = new THREE.PointLight(0x2266ff, 2.5, 35);
+    factoryStrobeBlue.position.set(-24, 8, -16);
+    scene.add(factoryStrobeBlue);
+
+    const clinicStrobeRed = new THREE.PointLight(0xff2222, 2.0, 30);
+    clinicStrobeRed.position.set(26, 10, -20);
+    scene.add(clinicStrobeRed);
+
+    const clinicStrobeBlue = new THREE.PointLight(0x2266ff, 2.0, 30);
+    clinicStrobeBlue.position.set(26, 10, -20);
+    scene.add(clinicStrobeBlue);
 
     // 5. Ground Grid & Roads
     const groundGeo = new THREE.PlaneGeometry(140, 140);
@@ -149,11 +178,13 @@ export function DistrictMap() {
         locPos.z + Math.sin(angle) * offsetRadius
       );
 
-      // Agent Cylinder Body
+      // Agent Cylinder Body - role colored
+      const roleCol = getRoleColor(ag.role);
       const bodyGeo = new THREE.CylinderGeometry(0.5, 0.5, 2.2, 12);
       const bodyMat = new THREE.MeshStandardMaterial({
-        color: ag.interviewed ? 0x4fd1c5 : 0xf6ad55,
-        roughness: 0.5,
+        color: ag.interviewed ? 0x4fd1c5 : roleCol,
+        roughness: 0.4,
+        metalness: 0.1,
       });
       const body = new THREE.Mesh(bodyGeo, bodyMat);
       body.position.y = 1.1;
@@ -193,6 +224,7 @@ export function DistrictMap() {
         }
 
         if (obj && obj.userData) {
+          sound.playClick();
           if (obj.userData.type === "agent") {
             openInterviewModal(obj.userData.agentId);
           } else if (obj.userData.type === "location") {
@@ -241,6 +273,13 @@ export function DistrictMap() {
     const animate = () => {
       animId = requestAnimationFrame(animate);
       const elapsed = clock.getElapsedTime();
+
+      // Emergency strobe alternation
+      const strobeOn = Math.floor(elapsed * 5) % 2 === 0;
+      factoryStrobeRed.intensity = strobeOn ? 3.5 : 0.0;
+      factoryStrobeBlue.intensity = !strobeOn ? 3.5 : 0.0;
+      clinicStrobeRed.intensity = !strobeOn ? 2.5 : 0.0;
+      clinicStrobeBlue.intensity = strobeOn ? 2.5 : 0.0;
 
       // Subtle float animation for agent heads
       agentMeshes.forEach((mesh, _) => {

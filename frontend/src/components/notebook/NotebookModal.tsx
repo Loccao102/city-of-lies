@@ -3,6 +3,7 @@
 import React from "react";
 import { useGameStore } from "@/store/gameStore";
 import { useUIStore, NotebookTab } from "@/store/uiStore";
+import { sound } from "@/services/sound";
 import {
   X,
   BookOpen,
@@ -56,7 +57,10 @@ export function NotebookModal() {
             </div>
           </div>
           <button
-            onClick={closeNotebookModal}
+            onClick={() => {
+              sound.playClick();
+              closeNotebookModal();
+            }}
             className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -71,7 +75,10 @@ export function NotebookModal() {
             return (
               <button
                 key={t.id}
-                onClick={() => setNotebookTab(t.id)}
+                onClick={() => {
+                  sound.playPaperRustle();
+                  setNotebookTab(t.id);
+                }}
                 className={`flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-t-lg transition-all border-b-2 ${
                   active
                     ? "bg-surface text-truth-glow border-truth"
