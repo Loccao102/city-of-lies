@@ -7,10 +7,53 @@ import (
 	"city-of-lies/backend/internal/game/belief"
 	"city-of-lies/backend/internal/game/evidence"
 	"city-of-lies/backend/internal/game/outcome"
+	"city-of-lies/backend/internal/game/scenario"
 )
+
+func getStringField(tf map[string]scenario.TruthFormField, key, fallback string) string {
+	if tf == nil {
+		return fallback
+	}
+	if f, ok := tf[key]; ok {
+		if s, ok := f.Answer.(string); ok {
+			return s
+		}
+	}
+	return fallback
+}
+
+func getBoolField(tf map[string]scenario.TruthFormField, key string, fallback bool) bool {
+	if tf == nil {
+		return fallback
+	}
+	if f, ok := tf[key]; ok {
+		if b, ok := f.Answer.(bool); ok {
+			return b
+		}
+	}
+	return fallback
+}
+
+func getIntField(tf map[string]scenario.TruthFormField, key string, fallback int) int {
+	if tf == nil {
+		return fallback
+	}
+	if f, ok := tf[key]; ok {
+		switch v := f.Answer.(type) {
+		case float64:
+			return int(v)
+		case int:
+			return v
+		case int64:
+			return int(v)
+		}
+	}
+	return fallback
+}
 
 // DiscoverEvidence marks an evidence item as found and recalculates evidence strength.
 func (e *SimulationEngine) DiscoverEvidence(scenarioEvidenceID string) (*domain.EvidenceItem, error) {
+
 	e.mu.Lock()
 	defer e.mu.Unlock()
 
@@ -142,10 +185,10 @@ func (e *SimulationEngine) SubmitGroundTruth(sub domain.GroundTruthSubmission) (
 	defer e.mu.Unlock()
 
 	expectedAnswers := outcome.GroundTruthAnswers{
-		EventType:      "fire",
-		CauseCategory:  "electrical_fault",
-		MajorExplosion: false,
-		Fatalities:     0,
+		EventType:      getStringField(e.ScenarioBundle.TruthForm, "event_type", "fire"),
+		CauseCategory:  getStringField(e.ScenarioBundle.TruthForm, "cause_category", "electrical_fault"),
+		MajorExplosion: getBoolField(e.ScenarioBundle.TruthForm, "major_explosion", false),
+		Fatalities:     getIntField(e.ScenarioBundle.TruthForm, "fatalities", 0),
 	}
 
 	cfg := outcome.EvaluatorConfig{

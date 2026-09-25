@@ -1,0 +1,171 @@
+[
+  {
+    "id": "er_entrance",
+    "name": "Cổng Khoa Cấp Cứu",
+    "description": "Nơi xe cứu thương tấp nập đưa người nhập viện.",
+    "position": {
+      "x": -24,
+      "y": 0,
+      "z": -16
+    },
+    "connected_locations": [
+      "er_triage",
+      "hospital_lobby",
+      "pharmacy"
+    ]
+  },
+  {
+    "id": "er_triage",
+    "name": "Khu Phân Loại Bệnh",
+    "description": "Bác sĩ kiểm tra sinh hiệu bệnh nhân ngộ độc.",
+    "position": {
+      "x": -32,
+      "y": 0,
+      "z": -24
+    },
+    "connected_locations": [
+      "er_entrance",
+      "internal_ward",
+      "icu"
+    ]
+  },
+  {
+    "id": "hospital_lobby",
+    "name": "Sảnh Chờ Bệnh Viện",
+    "description": "Thân nhân bệnh nhân tụ tập lo lắng.",
+    "position": {
+      "x": -14,
+      "y": 0,
+      "z": -18
+    },
+    "connected_locations": [
+      "er_entrance",
+      "canteen",
+      "admin_office"
+    ]
+  },
+  {
+    "id": "canteen",
+    "name": "Căng Tin Bệnh Viện",
+    "description": "Nơi cung cấp bữa trưa cá ngừ kho mặn cho ca trực sáng.",
+    "position": {
+      "x": -20,
+      "y": 0,
+      "z": -26
+    },
+    "connected_locations": [
+      "hospital_lobby",
+      "nutrition_dept"
+    ]
+  },
+  {
+    "id": "nutrition_dept",
+    "name": "Kho Dinh Dưỡng",
+    "description": "Khu bảo quản nguyên liệu thực phẩm và mẫu lưu 24h.",
+    "position": {
+      "x": -28,
+      "y": 0,
+      "z": -8
+    },
+    "connected_locations": [
+      "canteen"
+    ]
+  },
+  {
+    "id": "admin_office",
+    "name": "Văn Phòng Giám Đốc",
+    "description": "Nơi ban giám đốc tổ chức họp khẩn ứng phó.",
+    "position": {
+      "x": 2,
+      "y": 0,
+      "z": 6
+    },
+    "connected_locations": [
+      "hospital_lobby",
+      "lab_biosafety"
+    ]
+  },
+  {
+    "id": "lab_biosafety",
+    "name": "Phòng Xét Nghiệm Vi Sinh",
+    "description": "Phòng xét nghiệm mẫu bệnh phẩm đạt chuẩn an toàn sinh học cấp 2.",
+    "position": {
+      "x": 26,
+      "y": 0,
+      "z": -20
+    },
+    "connected_locations": [
+      "admin_office",
+      "icu"
+    ]
+  },
+  {
+    "id": "icu",
+    "name": "Khu Hồi Sức Tích Cực",
+    "description": "Nơi điều trị các ca mất nước nặng cần truyền dịch.",
+    "position": {
+      "x": -6,
+      "y": 0,
+      "z": -6
+    },
+    "connected_locations": [
+      "er_triage",
+      "lab_biosafety"
+    ]
+  },
+  {
+    "id": "pharmacy",
+    "name": "Nhà Thuốc Bệnh Viện",
+    "description": "Quầy cấp phát điện giải và than hoạt tính khẩn cấp.",
+    "position": {
+      "x": 10,
+      "y": 0,
+      "z": -4
+    },
+    "connected_locations": [
+      "er_entrance",
+      "street_cafe"
+    ]
+  },
+  {
+    "id": "internal_ward",
+    "name": "Khoa Nội Tiêu Hóa",
+    "description": "Khoa tiếp nhận theo dõi bệnh nhân sau khi rửa ruột.",
+    "position": {
+      "x": -22,
+      "y": 0,
+      "z": 14
+    },
+    "connected_locations": [
+      "er_triage",
+      "mortuary"
+    ]
+  },
+  {
+    "id": "mortuary",
+    "name": "Nhà Tang Lễ Bệnh Viện",
+    "description": "Nhà xác bệnh viện, hiện hoàn toàn trống ca tử vong mới.",
+    "position": {
+      "x": -10,
+      "y": 0,
+      "z": 18
+    },
+    "connected_locations": [
+      "internal_ward"
+    ]
+  },
+  {
+    "id": "street_cafe",
+    "name": "Cà Phê Cổng Viện",
+    "description": "Điểm tụ tập của cánh tài xế taxi và phóng viên hóng tin.",
+    "position": {
+      "x": 18,
+      "y": 0,
+      "z": 12
+    },
+    "connected_locations": [
+      "pharmacy",
+      "hospital_lobby"
+    ]
+  }
+]

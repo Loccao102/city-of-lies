@@ -35,6 +35,7 @@ function getRoleColor(role: string): number {
 
 export function DistrictMap() {
   const mountRef = useRef<HTMLDivElement>(null);
+  const session = useGameStore((s) => s.session);
   const agents = useGameStore((s) => s.agents);
   const recentPulses = useGameStore((s) => s.recentPulses);
   const { openInterviewModal, openInspectModal } = useUIStore();
@@ -84,7 +85,7 @@ export function DistrictMap() {
     streetLight.position.set(0, 10, 5);
     scene.add(streetLight);
 
-    // Emergency Strobe Lights at Factory Gate and Clinic/Hospital
+    // Emergency Strobe Lights
     const factoryStrobeRed = new THREE.PointLight(0xff2222, 2.5, 35);
     factoryStrobeRed.position.set(-24, 8, -16);
     scene.add(factoryStrobeRed);
@@ -101,10 +102,10 @@ export function DistrictMap() {
     clinicStrobeBlue.position.set(26, 10, -20);
     scene.add(clinicStrobeBlue);
 
-    // 5. Ground Grid & Roads
+    // 5. Ground Plane & Grid
     const groundGeo = new THREE.PlaneGeometry(140, 140);
     const groundMat = new THREE.MeshStandardMaterial({
-      color: 0x0e131b,
+      color: 0x111622,
       roughness: 0.9,
       metalness: 0.1,
     });
@@ -117,11 +118,30 @@ export function DistrictMap() {
     grid.position.y = 0.02;
     scene.add(grid);
 
-    // 6. Spawn 12 Location Buildings & Labels
+    // 6. Spawn 12 Location Buildings & Labels (Dynamic by scenario)
     const interactiveObjects: THREE.Object3D[] = [];
     const locationMap = new Map<string, THREE.Vector3>();
 
-    DISTRICT_LOCATIONS.forEach((loc) => {
+    const activeLocations = (session?.locations && session.locations.length > 0)
+      ? session.locations.map((l) => {
+          const cat = l.id.includes("hospital") || l.id.includes("clinic") || l.id.includes("triage")
+            ? "official"
+            : l.id.includes("vault") || l.id.includes("bank") || l.id.includes("station") || l.id.includes("admin") || l.id.includes("pump")
+            ? "factory"
+            : "public";
+          const color = cat === "factory" ? 0x4a5568 : cat === "official" ? 0x319795 : 0xdd6b20;
+          return {
+            id: l.id,
+            name: l.name,
+            x: l.position?.x ?? 0,
+            z: l.position?.z ?? 0,
+            color,
+            category: cat,
+          };
+        })
+      : DISTRICT_LOCATIONS;
+
+    activeLocations.forEach((loc) => {
       const pos = new THREE.Vector3(loc.x, 0, loc.z);
       locationMap.set(loc.id, pos);
 

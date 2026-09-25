@@ -1,5 +1,6 @@
 import {
   SessionResponse,
+  ScenarioSummary,
   AgentSummary,
   AgentDetail,
   NotebookData,
@@ -12,7 +13,15 @@ import {
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080/api/v1";
 
-export async function createSession(scenarioId = "riverside-factory", seed?: number): Promise<SessionResponse> {
+export async function listScenarios(): Promise<ScenarioSummary[]> {
+  const res = await fetch(`${API_BASE}/scenarios`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch scenarios list");
+  }
+  return res.json();
+}
+
+export async function createSession(scenarioId = "random", seed?: number): Promise<SessionResponse> {
   const res = await fetch(`${API_BASE}/sessions`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -24,6 +33,7 @@ export async function createSession(scenarioId = "riverside-factory", seed?: num
   }
   return res.json();
 }
+
 
 export async function getSession(sessionId: string): Promise<SessionResponse> {
   const res = await fetch(`${API_BASE}/sessions/${sessionId}`);

@@ -47,39 +47,46 @@ func (e *SimulationEngine) Tick(deltaSeconds int64) {
 				},
 			)
 
-			// Master Event Timeline belief & rumor progression
-			switch pe.GameSecond {
-			case 420: // Lan -> Hùng
-				e.seedAgentBelief("agent_factory_worker_b", "claim_chemical_explosion", 0.45, "Lan nói bên trong có nổ lớn sau khi tủ điện chập.")
-			case 480: // Hùng -> Thảo
-				e.seedAgentBelief("agent_shop_owner", "claim_chemical_explosion", 0.50, "Hùng kể trong nhà máy xảy ra nổ hóa chất và xe cấp cứu đã vào.")
-			case 720: // Blogger Khoa posts initial rumor
-				e.seedAgentBelief("agent_blogger", "claim_chemical_explosion", 0.60, "Nhận tin báo và ảnh khói nghi nổ tại nhà kho.")
-			case 840: // Khoa updates headline: "Nghi vấn nổ hóa chất"
-				e.seedAgentBelief("agent_blogger", "claim_chemical_explosion", 0.72, "Đăng bài nghi vấn nổ hóa chất tại Riverside.")
-				e.seedAgentBelief("agent_influencer", "claim_chemical_explosion", 0.68, "Thấy bài đăng nghi nổ hóa chất của Khoa Bùi.")
-			case 900: // Influencer Vy shares post
-				e.seedAgentBelief("agent_influencer", "claim_chemical_explosion", 0.80, "Chia sẻ bài viết nổ hóa chất và cảnh báo cư dân.")
-			case 1080: // Sơn gives evasive statement -> seeds coverup
-				e.seedAgentBelief("agent_blogger", "claim_company_coverup", 0.65, "Ban quản lý nhà máy né tránh trả lời thương vong, có dấu hiệu giấu tin.")
-				e.seedAgentBelief("agent_influencer", "claim_company_coverup", 0.70, "Quản lý ấp úng khi phóng viên hỏi, nghi vấn bưng bít thông tin.")
-				e.seedAgentBelief("agent_resident", "claim_company_coverup", 0.55, "Cư dân bàn tán công ty đang tìm cách ém nhẹm vụ việc.")
-				e.seedAgentBelief("agent_shop_owner", "claim_company_coverup", 0.50, "Xem tivi thấy quản lý trả lời quanh co.")
-				e.seedAgentBelief("agent_vendor", "claim_company_coverup", 0.50, "Người dân xem tin tức bàn tán công ty giấu tin người chết.")
-				e.seedAgentBelief("agent_taxi_driver", "claim_company_coverup", 0.50, "Nghe đài radio thấy công ty từ chối công bố số thương vong.")
-				e.seedAgentBelief("agent_delivery_driver", "claim_company_coverup", 0.50, "Thấy xe cấp cứu mà công ty bảo chưa có gì nghiêm trọng.")
-				e.seedAgentBelief("agent_student", "claim_company_coverup", 0.52, "Đọc tin thấy ban quản lý né tránh câu hỏi của báo chí.")
-				e.seedAgentBelief("agent_factory_worker_a", "claim_company_coverup", 0.50, "Bản thân ở kho thấy cháy mà quản lý không nói rõ sự thật.")
-			case 1200: // Vy livestreams claiming casualties
-				e.seedAgentBelief("agent_influencer", "claim_multiple_deaths", 0.75, "Phát sóng livestream nói có nguồn tin khẳng định có người chết.")
-				e.seedAgentBelief("agent_blogger", "claim_multiple_deaths", 0.68, "Nghe livestream của Vy Hoàng nói đã có người tử vong.")
-				e.seedAgentBelief("agent_shop_owner", "claim_multiple_deaths", 0.55, "Khách vào quán bàn tán xôn xao về thông tin có công nhân chết.")
+			// 1a. Process data-driven BeliefSeeds from PublicEvent (works for any scenario)
+			for _, bs := range pe.BeliefSeeds {
+				e.seedAgentBelief(bs.AgentID, bs.ClaimID, bs.Confidence, bs.Reasoning)
+			}
+
+			// 1b. Legacy hardcoded fallback for riverside-factory when no belief seeds are specified in json
+			if len(pe.BeliefSeeds) == 0 && (e.ScenarioBundle == nil || e.ScenarioBundle.Metadata.ID == "riverside-factory") {
+				switch pe.GameSecond {
+				case 420: // Lan -> Hùng
+					e.seedAgentBelief("agent_factory_worker_b", "claim_chemical_explosion", 0.45, "Lan nói bên trong có nổ lớn sau khi tủ điện chập.")
+				case 480: // Hùng -> Thảo
+					e.seedAgentBelief("agent_shop_owner", "claim_chemical_explosion", 0.50, "Hùng kể trong nhà máy xảy ra nổ hóa chất và xe cấp cứu đã vào.")
+				case 720: // Blogger Khoa posts initial rumor
+					e.seedAgentBelief("agent_blogger", "claim_chemical_explosion", 0.60, "Nhận tin báo và ảnh khói nghi nổ tại nhà kho.")
+				case 840: // Khoa updates headline: "Nghi vấn nổ hóa chất"
+					e.seedAgentBelief("agent_blogger", "claim_chemical_explosion", 0.72, "Đăng bài nghi vấn nổ hóa chất tại Riverside.")
+					e.seedAgentBelief("agent_influencer", "claim_chemical_explosion", 0.68, "Thấy bài đăng nghi nổ hóa chất của Khoa Bùi.")
+				case 900: // Influencer Vy shares post
+					e.seedAgentBelief("agent_influencer", "claim_chemical_explosion", 0.80, "Chia sẻ bài viết nổ hóa chất và cảnh báo cư dân.")
+				case 1080: // Sơn gives evasive statement -> seeds coverup
+					e.seedAgentBelief("agent_blogger", "claim_company_coverup", 0.65, "Ban quản lý nhà máy né tránh trả lời thương vong, có dấu hiệu giấu tin.")
+					e.seedAgentBelief("agent_influencer", "claim_company_coverup", 0.70, "Quản lý ấp úng khi phóng viên hỏi, nghi vấn bưng bít thông tin.")
+					e.seedAgentBelief("agent_resident", "claim_company_coverup", 0.55, "Cư dân bàn tán công ty đang tìm cách ém nhẹm vụ việc.")
+					e.seedAgentBelief("agent_shop_owner", "claim_company_coverup", 0.50, "Xem tivi thấy quản lý trả lời quanh co.")
+					e.seedAgentBelief("agent_vendor", "claim_company_coverup", 0.50, "Người dân xem tin tức bàn tán công ty giấu tin người chết.")
+					e.seedAgentBelief("agent_taxi_driver", "claim_company_coverup", 0.50, "Nghe đài radio thấy công ty từ chối công bố số thương vong.")
+					e.seedAgentBelief("agent_delivery_driver", "claim_company_coverup", 0.50, "Thấy xe cấp cứu mà công ty bảo chưa có gì nghiêm trọng.")
+					e.seedAgentBelief("agent_student", "claim_company_coverup", 0.52, "Đọc tin thấy ban quản lý né tránh câu hỏi của báo chí.")
+					e.seedAgentBelief("agent_factory_worker_a", "claim_company_coverup", 0.50, "Bản thân ở kho thấy cháy mà quản lý không nói rõ sự thật.")
+				case 1200: // Vy livestreams claiming casualties
+					e.seedAgentBelief("agent_influencer", "claim_multiple_deaths", 0.75, "Phát sóng livestream nói có nguồn tin khẳng định có người chết.")
+					e.seedAgentBelief("agent_blogger", "claim_multiple_deaths", 0.68, "Nghe livestream của Vy Hoàng nói đã có người tử vong.")
+					e.seedAgentBelief("agent_shop_owner", "claim_multiple_deaths", 0.55, "Khách vào quán bàn tán xôn xao về thông tin có công nhân chết.")
+				}
 			}
 		}
 	}
 
-	// 1b. Additional timeline anchor at 1320 (18:22): Khoa headlines casualties
-	if currentSecond == 1320 {
+	// 1c. Additional timeline anchor at 1320 (18:22): Khoa headlines casualties (riverside fallback)
+	if currentSecond == 1320 && (e.ScenarioBundle == nil || e.ScenarioBundle.Metadata.ID == "riverside-factory") {
 		e.seedAgentBelief("agent_blogger", "claim_multiple_deaths", 0.78, "Cập nhật tiêu đề bài viết: nguồn tin nói có thương vong tử vong.")
 	}
 

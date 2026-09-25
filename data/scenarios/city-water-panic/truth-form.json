@@ -1,0 +1,79 @@
+{
+  "event_type": {
+    "type": "enum",
+    "label": "Bản chất sự cố nguồn nước",
+    "answer": "pipe_rupture",
+    "options": [
+      {
+        "value": "pipe_rupture",
+        "label": "Sự cố van áp lực làm sục cặn oxit sắt gây đục tạm thời"
+      },
+      {
+        "value": "chemical_poisoning",
+        "label": "Nguồn nước bị đầu độc bằng xyanua công nghiệp"
+      },
+      {
+        "value": "algal_bloom",
+        "label": "Bùng phát tảo độc ô nhiễm nguồn nước"
+      },
+      {
+        "value": "unknown",
+        "label": "Chưa xác định"
+      }
+    ]
+  },
+  "cause_category": {
+    "type": "enum",
+    "label": "Nguyên nhân chính",
+    "answer": "mineral_sediment_surge",
+    "options": [
+      {
+        "value": "mineral_sediment_surge",
+        "label": "Dòng xoáy sục lớp bùn oxit sắt tự nhiên trong thành ống cũ"
+      },
+      {
+        "value": "deliberate_sabotage",
+        "label": "Kẻ xấu lén đổ hóa chất độc hại vào bể chứa"
+      },
+      {
+        "value": "industrial_effluent",
+        "label": "Nhà máy xả trộm nước thải chưa qua xử lý"
+      },
+      {
+        "value": "unknown",
+        "label": "Không rõ"
+      }
+    ]
+  },
+  "major_explosion": {
+    "type": "boolean",
+    "label": "Có thảm họa nhiễm độc diện rộng / nguồn nước bị nhiễm độc chết người không?",
+    "answer": false
+  },
+  "fatalities": {
+    "type": "integer",
+    "label": "Số người tử vong thực tế",
+    "answer": 0,
+    "min": 0,
+    "max": 50
+  },
+  "management_issue": {
+    "type": "enum",
+    "label": "Trách nhiệm quản lý",
+    "answer": "aging_gasket_replacement_delay",
+    "options": [
+      {
+        "value": "aging_gasket_replacement_delay",
+        "label": "Chậm thay thế gioăng cao su chịu lực định kỳ của van xả"
+      },
+      {
+        "value": "falsified_safety_records",
+        "label": "Làm giả phiếu kiểm nghiệm chất lượng nước sạch"
+      },
+      {
+        "value": "none",
+        "label": "Không có sai phạm"
+      }
+    ]
+  }
+}

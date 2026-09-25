@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGameStore } from "@/store/gameStore";
 import { useUIStore } from "@/store/uiStore";
 import { submitTruth } from "@/services/api";
@@ -8,23 +8,130 @@ import { SubmitTruthRequest } from "@/types/game";
 import {
   X,
   Flag,
-  CheckCircle2,
   AlertCircle,
-  FileCheck2,
   Loader2,
 } from "lucide-react";
+
+interface ScenarioConfig {
+  eventTypes: { value: string; label: string }[];
+  causeCategories: { value: string; label: string }[];
+  hazardLabel: string;
+  noHazardLabel: string;
+  hasHazardLabel: string;
+}
+
+const SCENARIO_CONFIGS: Record<string, ScenarioConfig> = {
+  "riverside-factory": {
+    eventTypes: [
+      { value: "fire", label: "Cháy cục bộ (Fire)" },
+      { value: "chemical_explosion", label: "Nổ hóa chất (Chemical Explosion)" },
+      { value: "gas_explosion", label: "Nổ khí gas (Gas Explosion)" },
+      { value: "unknown", label: "Chưa xác định" },
+    ],
+    causeCategories: [
+      { value: "electrical_fault", label: "Sự cố chập điện tủ phân phối DB-4" },
+      { value: "chemical_reaction", label: "Phản ứng hóa chất nguy hiểm" },
+      { value: "arson", label: "Cố ý phóng hỏa" },
+      { value: "unknown", label: "Không rõ" },
+    ],
+    hazardLabel: "Có vụ nổ lớn phá hủy cấu trúc không?",
+    noHazardLabel: "Không có nổ lớn (Chỉ có tiếng nổ chập aptomat)",
+    hasHazardLabel: "Có nổ lớn phá hủy nhà máy",
+  },
+  "metro-hospital-outbreak": {
+    eventTypes: [
+      { value: "food_poisoning", label: "Ngộ độc thực phẩm tập thể" },
+      { value: "viral_outbreak", label: "Bùng phát virus nguy hiểm" },
+      { value: "chemical_poisoning", label: "Đầu độc hóa chất" },
+      { value: "unknown", label: "Chưa xác định" },
+    ],
+    causeCategories: [
+      { value: "bacterial_toxin", label: "Độc tố histamine do bảo quản cá ngừ sai quy chuẩn" },
+      { value: "lab_leak", label: "Rò rỉ mầm bệnh từ phòng thí nghiệm vi sinh" },
+      { value: "deliberate_sabotage", label: "Kẻ xấu cố ý đầu độc thức ăn" },
+      { value: "unknown", label: "Không rõ" },
+    ],
+    hazardLabel: "Có sự cố an toàn sinh học cấp cao / thảm họa lây nhiễm không?",
+    noHazardLabel: "Không có rò rỉ virus sinh học",
+    hasHazardLabel: "Có rò rỉ virus mầm bệnh nguy hiểm",
+  },
+  "midtown-bank-run": {
+    eventTypes: [
+      { value: "tech_outage", label: "Gián đoạn kỹ thuật hệ thống Core Banking" },
+      { value: "bank_insolvency", label: "Ngân hàng mất thanh khoản / phá sản" },
+      { value: "cyber_heist", label: "Vụ trộm mạng quy mô lớn" },
+      { value: "unknown", label: "Chưa xác định" },
+    ],
+    causeCategories: [
+      { value: "core_banking_deadlock", label: "Xung đột deadlock cơ sở dữ liệu khi nâng cấp bản vá v4.12" },
+      { value: "embezzlement", label: "Ban lãnh đạo tẩu tán tài sản" },
+      { value: "hacker_ransomware", label: "Mã độc tống tiền khóa dữ liệu" },
+      { value: "unknown", label: "Không rõ" },
+    ],
+    hazardLabel: "Có sự cố mất trắng tiền gửi / kho quỹ bị cướp phá không?",
+    noHazardLabel: "Không có mất mát tài sản (Hầm kho an toàn 100%)",
+    hasHazardLabel: "Có mất tiền / ban lãnh đạo tháo chạy",
+  },
+  "subway-line3-standstill": {
+    eventTypes: [
+      { value: "signal_failure", label: "Sự cố chập tín hiệu kích hoạt dừng tàu an toàn" },
+      { value: "terrorist_attack", label: "Tấn công khủng bố bom khí độc" },
+      { value: "tunnel_collapse", label: "Sập sụt lún kết cấu hầm ngầm" },
+      { value: "unknown", label: "Chưa xác định" },
+    ],
+    causeCategories: [
+      { value: "short_circuit_cable", label: "Đoản mạch cáp tín hiệu hộp 14 do ẩm mốc" },
+      { value: "chemical_gas_device", label: "Kích nổ thiết bị hơi ngạt độc hại" },
+      { value: "train_collision", label: "Va chạm phương tiện khác" },
+      { value: "unknown", label: "Không rõ" },
+    ],
+    hazardLabel: "Có vụ nổ phá hủy toa tàu hay sập hầm ngầm không?",
+    noHazardLabel: "Không có nổ bom hay sập hầm (Vỏ hầm nguyên vẹn)",
+    hasHazardLabel: "Có tấn công nổ bom / sập hầm ngầm",
+  },
+  "city-water-panic": {
+    eventTypes: [
+      { value: "pipe_rupture", label: "Sự cố van áp lực làm sục cặn oxit sắt gây đục tạm thời" },
+      { value: "chemical_poisoning", label: "Nguồn nước bị đầu độc bằng xyanua công nghiệp" },
+      { value: "algal_bloom", label: "Bùng phát tảo độc ô nhiễm nguồn nước" },
+      { value: "unknown", label: "Chưa xác định" },
+    ],
+    causeCategories: [
+      { value: "mineral_sediment_surge", label: "Dòng xoáy sục lớp bùn oxit sắt tự nhiên trong thành ống cũ" },
+      { value: "deliberate_sabotage", label: "Kẻ xấu lén đổ hóa chất độc hại vào bể chứa" },
+      { value: "industrial_effluent", label: "Nhà máy xả trộm nước thải chưa qua xử lý" },
+      { value: "unknown", label: "Không rõ" },
+    ],
+    hazardLabel: "Có thảm họa nhiễm độc diện rộng / nước nhiễm độc chết người không?",
+    noHazardLabel: "Không có độc tố (Xét nghiệm âm tính 100%)",
+    hasHazardLabel: "Có chất độc xyanua chết người",
+  },
+};
 
 export function SubmitTruthModal() {
   const session = useGameStore((s) => s.session);
   const refreshState = useGameStore((s) => s.refreshState);
   const { isSubmitTruthModalOpen, closeSubmitTruthModal, openAARModal } = useUIStore();
 
-  const [eventType, setEventType] = useState("fire");
-  const [causeCategory, setCauseCategory] = useState("electrical_fault");
+  const cfg = SCENARIO_CONFIGS[session?.scenario_id || "riverside-factory"] || SCENARIO_CONFIGS["riverside-factory"];
+
+  const [eventType, setEventType] = useState(cfg.eventTypes[0]?.value || "fire");
+  const [causeCategory, setCauseCategory] = useState(cfg.causeCategories[0]?.value || "electrical_fault");
   const [majorExplosion, setMajorExplosion] = useState(false);
   const [fatalities, setFatalities] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (session?.scenario_id && SCENARIO_CONFIGS[session.scenario_id]) {
+      const c = SCENARIO_CONFIGS[session.scenario_id];
+      setEventType(c.eventTypes[0]?.value || "fire");
+      setCauseCategory(c.causeCategories[0]?.value || "electrical_fault");
+      setMajorExplosion(false);
+      setFatalities(0);
+      setFeedback(null);
+    }
+  }, [session?.scenario_id, isSubmitTruthModalOpen]);
 
   if (!isSubmitTruthModalOpen || !session) return null;
 
@@ -71,7 +178,7 @@ export function SubmitTruthModal() {
                 NỘP KẾT LUẬN SỰ THẬT CUỐI CÙNG
               </h3>
               <p className="text-xs text-gray-400">
-                Xác lập Ground Truth để kết thúc cuộc điều tra
+                Xác lập Ground Truth cho {session.scenario_title || "vụ án"}
               </p>
             </div>
           </div>
@@ -114,36 +221,38 @@ export function SubmitTruthModal() {
               onChange={(e) => setEventType(e.target.value)}
               className="w-full bg-black/50 border border-white/10 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-truth"
             >
-              <option value="fire">Cháy thông thường (Fire)</option>
-              <option value="chemical_explosion">Nổ hóa chất (Chemical Explosion)</option>
-              <option value="gas_explosion">Nổ khí gas (Gas Explosion)</option>
-              <option value="unknown">Không rõ nguyên nhân</option>
+              {cfg.eventTypes.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
             </select>
           </div>
 
           {/* 2. Cause Category */}
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-gray-200">
-              Nguồn gốc kỹ thuật (Cause Category):
+              Nguyên nhân chính (Cause Category):
             </label>
             <select
               value={causeCategory}
               onChange={(e) => setCauseCategory(e.target.value)}
               className="w-full bg-black/50 border border-white/10 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-truth"
             >
-              <option value="electrical_fault">Chập điện / Hỏng hóc kỹ thuật (Electrical Fault)</option>
-              <option value="chemical_reaction">Phản ứng hóa học độc hại (Chemical Reaction)</option>
-              <option value="arson">Phóng hỏa có chủ đích (Arson)</option>
-              <option value="unknown">Chưa xác định</option>
+              {cfg.causeCategories.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
             </select>
           </div>
 
-          {/* 3. Major Explosion */}
+          {/* 3. Major Hazard / Explosion */}
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-gray-200 block">
-              Có vụ nổ lớn phá hủy cấu trúc không?
+              {cfg.hazardLabel}
             </label>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               <label className="flex items-center gap-2 text-xs text-gray-300 cursor-pointer">
                 <input
                   type="radio"
@@ -152,7 +261,7 @@ export function SubmitTruthModal() {
                   onChange={() => setMajorExplosion(false)}
                   className="accent-truth"
                 />
-                <span>Không có nổ lớn (Chỉ có tiếng nổ chập aptomat)</span>
+                <span>{cfg.noHazardLabel}</span>
               </label>
               <label className="flex items-center gap-2 text-xs text-gray-300 cursor-pointer">
                 <input
@@ -162,7 +271,7 @@ export function SubmitTruthModal() {
                   onChange={() => setMajorExplosion(true)}
                   className="accent-truth"
                 />
-                <span>Có nổ lớn</span>
+                <span>{cfg.hasHazardLabel}</span>
               </label>
             </div>
           </div>
@@ -175,7 +284,7 @@ export function SubmitTruthModal() {
             <input
               type="number"
               min={0}
-              max={20}
+              max={200}
               value={fatalities}
               onChange={(e) => setFatalities(Number(e.target.value))}
               className="w-full bg-black/50 border border-white/10 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-truth font-mono"

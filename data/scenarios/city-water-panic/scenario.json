@@ -1,0 +1,34 @@
+{
+  "id": "city-water-panic",
+  "title": "Khủng Hoảng Nguồn Nước Thành Phố",
+  "version": 1,
+  "description": "Lúc 06:15 sáng, van xả áp số 9 trên tuyến ống chính D800 của Trạm Cấp Nước Tây Thành Phố bị rách gioăng cao su, khiến dòng nước xoáy cuốn lớp phù sa oxit sắt tự nhiên sục lên làm nước máy khu dân cư đổi màu nâu đỏ trong 3 tiếng. Chỉ số độc tố hoàn toàn âm tính, 0 ca nhiễm độc. Tin đồn ác ý lan truyền rằng nguồn nước bị đầu độc bằng xyanua công nghiệp và đã có nhiều người tử vong.",
+  "primary_false_narrative": {
+    "adoption_threshold": 0.65,
+    "defeat_ratio": 0.75,
+    "claims": [
+      {
+        "claim_id": "claim_cyanide_poisoning",
+        "weight": 0.35
+      },
+      {
+        "claim_id": "claim_mass_poisoning_deaths",
+        "weight": 0.4
+      },
+      {
+        "claim_id": "claim_water_plant_coverup",
+        "weight": 0.25
+      }
+    ]
+  },
+  "required_truth_fields": [
+    "event_type",
+    "cause_category",
+    "major_explosion",
+    "fatalities"
+  ],
+  "bonus_truth_fields": [
+    "water_toxicity",
+    "management_issue"
+  ]
+}

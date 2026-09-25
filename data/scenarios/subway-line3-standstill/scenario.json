@@ -1,0 +1,34 @@
+{
+  "id": "subway-line3-standstill",
+  "title": "Chuyến Tàu Ngầm Tuyến Số 3",
+  "version": 1,
+  "description": "Lúc 18:30 giờ cao điểm, chập cáp tín hiệu đường ray hầm ngầm khiến đoàn tàu Metro E304 kích hoạt hệ thống phanh hãm an toàn khẩn cấp, dừng lại giữa đường hầm. Hệ thống quạt gió khẩn cấp hoạt động tốt, 120 hành khách được sơ tán an toàn theo lối thoát hiểm. 0 ca tử vong. Tin đồn lan truyền rằng tàu bị khủng bố bom khí độc và hàng trăm người ngạt thở kẹt dưới hầm.",
+  "primary_false_narrative": {
+    "adoption_threshold": 0.65,
+    "defeat_ratio": 0.75,
+    "claims": [
+      {
+        "claim_id": "claim_terrorist_gas_attack",
+        "weight": 0.35
+      },
+      {
+        "claim_id": "claim_hundreds_suffocated",
+        "weight": 0.4
+      },
+      {
+        "claim_id": "claim_tunnel_collapse_denial",
+        "weight": 0.25
+      }
+    ]
+  },
+  "required_truth_fields": [
+    "event_type",
+    "cause_category",
+    "major_explosion",
+    "fatalities"
+  ],
+  "bonus_truth_fields": [
+    "evacuation_status",
+    "management_issue"
+  ]
+}

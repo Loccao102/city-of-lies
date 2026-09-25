@@ -1,0 +1,222 @@
+[
+  {
+    "game_second": 120,
+    "event_type": "atm_glitch",
+    "headline": "Các cây ATM Midtown đồng loạt báo lỗi kết nối",
+    "description": "Hàng trăm khách hàng không thể rút tiền mặt hoặc kiểm tra số dư qua ứng dụng di động.",
+    "location_id": "atm_gallery",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 300,
+    "event_type": "crowd_gathering",
+    "headline": "Đám đông kéo đến đại sảnh ngân hàng",
+    "description": "Người dân lo lắng tập trung yêu cầu rút tiền tiết kiệm trước hạn.",
+    "location_id": "bank_hall",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 420,
+    "event_type": "rumor_seed",
+    "headline": "Tài xế Dũng bàn tán về việc ngân hàng hết tiền",
+    "description": "Dũng nói với bà Ba rằng thấy nhân viên tắt đèn cây ATM.",
+    "location_id": "atm_gallery",
+    "belief_seeds": [
+      {
+        "agent_id": "b_vendor_dung",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.45,
+        "reasoning": "Thấy bảo vệ xua tay báo cây ATM ngừng giao dịch."
+      },
+      {
+        "agent_id": "b_citizen_ba",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.4,
+        "reasoning": "Nghe tài xế bảo máy chủ ngân hàng bị sập."
+      }
+    ]
+  },
+  {
+    "game_second": 480,
+    "event_type": "rumor_transmission",
+    "headline": "Khách VIP lo ngại mất tiền gửi",
+    "description": "Tin đồn hệ thống máy chủ bị tê liệt lan truyền.",
+    "location_id": "vip_lounge",
+    "belief_seeds": [
+      {
+        "agent_id": "b_citizen_ba",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.5,
+        "reasoning": "Càng lúc càng đông người kéo đến rút tiền."
+      },
+      {
+        "agent_id": "b_investor_lam",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.45,
+        "reasoning": "App VIP Banking không đăng nhập được."
+      }
+    ]
+  },
+  {
+    "game_second": 720,
+    "event_type": "blog_post",
+    "headline": "Môi giới Trung đăng tin cảnh báo thanh khoản",
+    "description": "Bài viết: Ngân hàng Midtown tê liệt mạng, nghi mất thanh khoản.",
+    "location_id": "broker_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "b_broker_trung",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.6,
+        "reasoning": "Cổ phiếu ngân hàng bị bán tháo sàn."
+      }
+    ]
+  },
+  {
+    "game_second": 840,
+    "event_type": "headline_update",
+    "headline": "Trung đổi tiêu đề: 'Khủng hoảng thanh khoản Midtown'",
+    "description": "Bài đăng cảnh báo người dân khẩn trương rút tiền.",
+    "location_id": "broker_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "b_broker_trung",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.72,
+        "reasoning": "Thấy tin tức chia sẻ chóng mặt trên các room chứng khoán."
+      },
+      {
+        "agent_id": "b_reporter_tuan",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.68,
+        "reasoning": "Nhiều nguồn tin đồn ngân hàng sắp bị kiểm soát đặc biệt."
+      }
+    ]
+  },
+  {
+    "game_second": 900,
+    "event_type": "social_viral",
+    "headline": "Làn sóng rút tiền lan rộng trên mạng xã hội",
+    "description": "Các hội nhóm chia sẻ thông tin khiến đám đông kéo tới xếp hàng dài.",
+    "location_id": "financial_square",
+    "belief_seeds": [
+      {
+        "agent_id": "b_investor_lam",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.8,
+        "reasoning": "Nhận được cuộc gọi cảnh báo từ đối tác kinh doanh."
+      },
+      {
+        "agent_id": "b_reporter_tuan",
+        "claim_id": "claim_bank_insolvency",
+        "confidence": 0.75,
+        "reasoning": "Chưa thấy thông cáo báo chí giải thích thỏa đáng."
+      }
+    ]
+  },
+  {
+    "game_second": 1080,
+    "event_type": "official_statement",
+    "headline": "Lãnh đạo ngân hàng chậm giải thích số liệu thanh khoản",
+    "description": "Ban điều hành chưa công bố báo cáo kiểm toán khiến tin đồn phong tỏa bùng nổ.",
+    "location_id": "boardroom",
+    "belief_seeds": [
+      {
+        "agent_id": "b_broker_trung",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.65,
+        "reasoning": "Tin đồn lệnh phong tỏa tài khoản sẽ ban hành lúc 17:00."
+      },
+      {
+        "agent_id": "b_citizen_ba",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.65,
+        "reasoning": "Người xếp hàng bảo sau chiều nay sẽ không rút được nữa."
+      },
+      {
+        "agent_id": "b_customer_lan",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.6,
+        "reasoning": "Lệnh chuyển khoản công ty vẫn bị treo."
+      },
+      {
+        "agent_id": "b_vendor_dung",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.6,
+        "reasoning": "Thấy bảo vệ đóng cửa sắt chặn khách."
+      },
+      {
+        "agent_id": "b_investor_lam",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.65,
+        "reasoning": "Luật sư cảnh báo rủi ro phong tỏa tư pháp."
+      },
+      {
+        "agent_id": "b_reporter_tuan",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.7,
+        "reasoning": "Báo chí đặt câu hỏi về tính pháp lý giao dịch."
+      },
+      {
+        "agent_id": "b_security_guard",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.5,
+        "reasoning": "Nhận lệnh giữ khoảng cách với người dân."
+      },
+      {
+        "agent_id": "b_teller_mai",
+        "claim_id": "claim_account_freeze_order",
+        "confidence": 0.48,
+        "reasoning": "Màn hình hệ thống bị khóa chưa mở lại."
+      }
+    ]
+  },
+  {
+    "game_second": 1200,
+    "event_type": "livestream_claim",
+    "headline": "Môi giới Trung livestream khẳng định Tổng giám đốc đã tháo chạy",
+    "description": "Trung nói trên sóng trực tiếp rằng xe chở vàng đã bí mật rời kho.",
+    "location_id": "broker_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "b_broker_trung",
+        "claim_id": "claim_ceo_fled_with_gold",
+        "confidence": 0.75,
+        "reasoning": "Khẳng định có tin nội bộ lãnh đạo đã bay sang nước ngoài."
+      },
+      {
+        "agent_id": "b_vendor_dung",
+        "claim_id": "claim_ceo_fled_with_gold",
+        "confidence": 0.68,
+        "reasoning": "Khách bàn tán sếp ngân hàng tẩu tán tài sản."
+      },
+      {
+        "agent_id": "b_citizen_ba",
+        "claim_id": "claim_ceo_fled_with_gold",
+        "confidence": 0.55,
+        "reasoning": "Khóc lóc vì tưởng mất hết tiền tiết kiệm dưỡng già."
+      }
+    ]
+  },
+  {
+    "game_second": 1320,
+    "event_type": "headline_fatalities",
+    "headline": "Các trang tin lá cải đăng bài: 'Sếp ngân hàng ôm vàng bỏ trốn'",
+    "description": "Tin đồn thất thiệt đạt đỉnh điểm chia sẻ trên các nền tảng mạng.",
+    "location_id": "broker_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "b_broker_trung",
+        "claim_id": "claim_ceo_fled_with_gold",
+        "confidence": 0.82,
+        "reasoning": "Cập nhật bài viết khẳng định vàng dự trữ đã bị chuyển đi."
+      },
+      {
+        "agent_id": "b_reporter_tuan",
+        "claim_id": "claim_ceo_fled_with_gold",
+        "confidence": 0.78,
+        "reasoning": "Áp lực tin nóng đẩy nghi vấn lên trang nhất."
+      }
+    ]
+  }
+]

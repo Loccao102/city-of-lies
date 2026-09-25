@@ -1,0 +1,68 @@
+[
+  {
+    "agent_id": "b_ceo_viet",
+    "claim_id": "claim_ceo_present",
+    "confidence": 0.99,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "b_ceo_viet",
+    "claim_id": "claim_liquidity_sufficient",
+    "confidence": 0.95,
+    "basis": "financial_records"
+  },
+  {
+    "agent_id": "b_cio_thang",
+    "claim_id": "claim_tech_outage_occurred",
+    "confidence": 0.99,
+    "basis": "server_logs"
+  },
+  {
+    "agent_id": "b_cio_thang",
+    "claim_id": "claim_database_deadlock_cause",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "b_vault_chief_hung",
+    "claim_id": "claim_liquidity_sufficient",
+    "confidence": 0.98,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "b_cctv_operator_hieu",
+    "claim_id": "claim_ceo_present",
+    "confidence": 0.95,
+    "basis": "cctv_monitoring"
+  },
+  {
+    "agent_id": "b_inspector_hoa",
+    "claim_id": "claim_liquidity_sufficient",
+    "confidence": 0.92,
+    "basis": "supervisory_data"
+  },
+  {
+    "agent_id": "b_it_engineer_duc",
+    "claim_id": "claim_database_deadlock_cause",
+    "confidence": 0.98,
+    "basis": "debug_console"
+  },
+  {
+    "agent_id": "b_broker_trung",
+    "claim_id": "claim_bank_insolvency",
+    "confidence": 0.4,
+    "basis": "speculation"
+  },
+  {
+    "agent_id": "b_vendor_dung",
+    "claim_id": "claim_bank_insolvency",
+    "confidence": 0.35,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "b_citizen_ba",
+    "claim_id": "claim_bank_insolvency",
+    "confidence": 0.3,
+    "basis": "hearsay"
+  }
+]

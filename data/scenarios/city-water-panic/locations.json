@@ -1,0 +1,167 @@
+[
+  {
+    "id": "water_plant_gate",
+    "name": "Cổng Nhà Máy Nước",
+    "description": "Người dân kéo đến mang theo xô chậu và mẫu nước đục yêu cầu giải thích.",
+    "position": {
+      "x": -24,
+      "y": 0,
+      "z": -16
+    },
+    "connected_locations": [
+      "pump_station",
+      "water_quality_lab",
+      "plant_admin"
+    ]
+  },
+  {
+    "id": "pump_station",
+    "name": "Trạm Bơm Áp Lực Cao (Tuyến D800)",
+    "description": "Nơi đặt các máy bơm cao áp và van xả số 9 bị sự cố áp lực.",
+    "position": {
+      "x": -32,
+      "y": 0,
+      "z": -24
+    },
+    "connected_locations": [
+      "water_plant_gate",
+      "pipeline_junction"
+    ]
+  },
+  {
+    "id": "pipeline_junction",
+    "name": "Hố Van Tuyến Ống Chính",
+    "description": "Vị trí van xả áp lực số 9 bị rách gioăng kỹ thuật.",
+    "position": {
+      "x": -28,
+      "y": 0,
+      "z": -8
+    },
+    "connected_locations": [
+      "pump_station"
+    ]
+  },
+  {
+    "id": "water_quality_lab",
+    "name": "Phòng Thử Nghiệm Chất Lượng Nước",
+    "description": "Phòng kiểm nghiệm hóa sinh tiến hành phân tích quang phổ chỉ tiêu nước.",
+    "position": {
+      "x": -20,
+      "y": 0,
+      "z": -26
+    },
+    "connected_locations": [
+      "water_plant_gate",
+      "filtration_tanks"
+    ]
+  },
+  {
+    "id": "filtration_tanks",
+    "name": "Hệ Thống Bể Lọc Cát & Khử Trùng",
+    "description": "Các bể lọc cát thạch anh và clo hóa nước sạch.",
+    "position": {
+      "x": -14,
+      "y": 0,
+      "z": -18
+    },
+    "connected_locations": [
+      "water_quality_lab"
+    ]
+  },
+  {
+    "id": "plant_admin",
+    "name": "Văn Phòng Ban Lãnh Đạo",
+    "description": "Ban giám đốc họp khẩn để cô lập phân đoạn ống đục.",
+    "position": {
+      "x": 2,
+      "y": 0,
+      "z": 6
+    },
+    "connected_locations": [
+      "water_plant_gate",
+      "supermarket"
+    ]
+  },
+  {
+    "id": "supermarket",
+    "name": "Siêu Thị Trung Tâm",
+    "description": "Người dân tranh nhau vét sạch toàn bộ nước khoáng đóng chai.",
+    "position": {
+      "x": 26,
+      "y": 0,
+      "z": -20
+    },
+    "connected_locations": [
+      "plant_admin",
+      "residential_quarter"
+    ]
+  },
+  {
+    "id": "residential_quarter",
+    "name": "Khu Đô Thị Sông Xanh",
+    "description": "Khu chung cư nơi cư dân phát hiện nước vòi chảy ra màu nâu đỏ.",
+    "position": {
+      "x": -6,
+      "y": 0,
+      "z": -6
+    },
+    "connected_locations": [
+      "supermarket",
+      "local_clinic",
+      "riverside_teahouse"
+    ]
+  },
+  {
+    "id": "local_clinic",
+    "name": "Trạm Y Tế Phường",
+    "description": "Nơi người dân kéo đến đòi xét nghiệm máu vì sợ trúng độc.",
+    "position": {
+      "x": 10,
+      "y": 0,
+      "z": -4
+    },
+    "connected_locations": [
+      "residential_quarter"
+    ]
+  },
+  {
+    "id": "riverside_teahouse",
+    "name": "Quán Trà Bờ Sông",
+    "description": "Điểm bàn luận rôm rả của cư dân về màu nước máy buổi sáng.",
+    "position": {
+      "x": 18,
+      "y": 0,
+      "z": 12
+    },
+    "connected_locations": [
+      "residential_quarter",
+      "environment_office"
+    ]
+  },
+  {
+    "id": "environment_office",
+    "name": "Sở Tài Nguyên & Môi Trường",
+    "description": "Thanh tra môi trường lấy mẫu nước độc lập tại nguồn cấp.",
+    "position": {
+      "x": -22,
+      "y": 0,
+      "z": 14
+    },
+    "connected_locations": [
+      "riverside_teahouse"
+    ]
+  },
+  {
+    "id": "police_station",
+    "name": "Công An Khu Vực",
+    "description": "Chốt công an giữ trật tự trước cảnh gom nước đóng chai tại siêu thị.",
+    "position": {
+      "x": -10,
+      "y": 0,
+      "z": 18
+    },
+    "connected_locations": [
+      "supermarket"
+    ]
+  }
+]

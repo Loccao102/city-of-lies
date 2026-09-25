@@ -1,0 +1,86 @@
+[
+  {
+    "from_agent_id": "b_ceo_viet",
+    "to_agent_id": "b_cio_thang",
+    "trust": 0.88,
+    "reason": "Tin cậy năng lực giám đốc IT"
+  },
+  {
+    "from_agent_id": "b_cio_thang",
+    "to_agent_id": "b_it_engineer_duc",
+    "trust": 0.9,
+    "reason": "Cộng sự trực tiếp phòng máy chủ"
+  },
+  {
+    "from_agent_id": "b_ceo_viet",
+    "to_agent_id": "b_vault_chief_hung",
+    "trust": 0.92,
+    "reason": "Bảo chứng tài sản kho quỹ"
+  },
+  {
+    "from_agent_id": "b_inspector_hoa",
+    "to_agent_id": "b_ceo_viet",
+    "trust": 0.8,
+    "reason": "Quan hệ giám sát quản lý nhà nước"
+  },
+  {
+    "from_agent_id": "b_cctv_operator_hieu",
+    "to_agent_id": "b_security_guard",
+    "trust": 0.85,
+    "reason": "Phối hợp an ninh nội bộ"
+  },
+  {
+    "from_agent_id": "b_teller_mai",
+    "to_agent_id": "b_banker_phong",
+    "trust": 0.8,
+    "reason": "Nhận chỉ đạo điều phối tiền mặt"
+  },
+  {
+    "from_agent_id": "b_vendor_dung",
+    "to_agent_id": "b_broker_trung",
+    "trust": 0.7,
+    "reason": "Hóng chuyện thị trường ở quán cafe"
+  },
+  {
+    "from_agent_id": "b_broker_trung",
+    "to_agent_id": "b_student_khoa",
+    "trust": 0.65,
+    "reason": "Bàn luận phân tích chứng khoán"
+  },
+  {
+    "from_agent_id": "b_investor_lam",
+    "to_agent_id": "b_ceo_viet",
+    "trust": 0.75,
+    "reason": "Mối quan hệ khách hàng chiến lược"
+  },
+  {
+    "from_agent_id": "b_reporter_tuan",
+    "to_agent_id": "b_inspector_hoa",
+    "trust": 0.85,
+    "reason": "Nguồn tin cơ quan thanh tra"
+  },
+  {
+    "from_agent_id": "b_citizen_ba",
+    "to_agent_id": "b_vendor_dung",
+    "trust": 0.75,
+    "reason": "Người quen cùng khu phố"
+  },
+  {
+    "from_agent_id": "b_customer_lan",
+    "to_agent_id": "b_teller_mai",
+    "trust": 0.78,
+    "reason": "Làm việc thanh toán thường xuyên"
+  },
+  {
+    "from_agent_id": "b_driver_viet",
+    "to_agent_id": "b_vault_chief_hung",
+    "trust": 0.9,
+    "reason": "Đồng nghiệp áp tải tiền mặt"
+  },
+  {
+    "from_agent_id": "b_lawyer_phuc",
+    "to_agent_id": "b_ceo_viet",
+    "trust": 0.85,
+    "reason": "Cố vấn pháp chế trưởng"
+  }
+]

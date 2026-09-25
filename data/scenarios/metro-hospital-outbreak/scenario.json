@@ -1,0 +1,34 @@
+{
+  "id": "metro-hospital-outbreak",
+  "title": "Báo Động Bệnh Viện Metro",
+  "version": 1,
+  "description": "Lúc 11:45 trưa, 18 y bác sĩ và bệnh nhân nhập viện cấp cứu do ngộ độc thực phẩm từ món cá ngừ hỏng tại căng tin bệnh viện. 0 ca tử vong. Tin đồn ác ý thổi phồng rằng mầm bệnh virus vũ khí sinh học đã rò rỉ từ phòng thí nghiệm ngầm.",
+  "primary_false_narrative": {
+    "adoption_threshold": 0.65,
+    "defeat_ratio": 0.75,
+    "claims": [
+      {
+        "claim_id": "claim_lab_virus_leak",
+        "weight": 0.35
+      },
+      {
+        "claim_id": "claim_patient_fatalities",
+        "weight": 0.4
+      },
+      {
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "weight": 0.25
+      }
+    ]
+  },
+  "required_truth_fields": [
+    "event_type",
+    "cause_category",
+    "major_explosion",
+    "fatalities"
+  ],
+  "bonus_truth_fields": [
+    "pathogen_type",
+    "management_issue"
+  ]
+}

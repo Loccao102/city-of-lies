@@ -1,0 +1,68 @@
+[
+  {
+    "agent_id": "s_driver_hai",
+    "claim_id": "claim_train_stopped_safely",
+    "confidence": 0.99,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "s_driver_hai",
+    "claim_id": "claim_all_evacuated_zero_deaths",
+    "confidence": 0.9,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "s_tech_quoc",
+    "claim_id": "claim_signal_cable_short",
+    "confidence": 0.98,
+    "basis": "hardware_inspection"
+  },
+  {
+    "agent_id": "s_tech_quoc",
+    "claim_id": "claim_no_structural_collapse",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "s_vent_engineer_an",
+    "claim_id": "claim_ventilation_working",
+    "confidence": 0.99,
+    "basis": "telemetry_sensors"
+  },
+  {
+    "agent_id": "s_fire_commander_kien",
+    "claim_id": "claim_all_evacuated_zero_deaths",
+    "confidence": 0.98,
+    "basis": "operational_report"
+  },
+  {
+    "agent_id": "s_doctor_huyen",
+    "claim_id": "claim_all_evacuated_zero_deaths",
+    "confidence": 0.95,
+    "basis": "medical_triage_log"
+  },
+  {
+    "agent_id": "s_passenger_tuan",
+    "claim_id": "claim_no_structural_collapse",
+    "confidence": 0.92,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "s_kiosk_vendor_ba",
+    "claim_id": "claim_terrorist_gas_attack",
+    "confidence": 0.35,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "s_livestreamer_long",
+    "claim_id": "claim_terrorist_gas_attack",
+    "confidence": 0.4,
+    "basis": "speculation"
+  },
+  {
+    "agent_id": "s_taxi_driver_thanh",
+    "claim_id": "claim_terrorist_gas_attack",
+    "confidence": 0.3,
+    "basis": "hearsay"
+  }
+]

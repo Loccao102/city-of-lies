@@ -1,0 +1,72 @@
+[
+  {
+    "id": "claim_poisoning_occurred",
+    "text": "Có vụ ngộ độc thực phẩm tập thể tại bệnh viện",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_tuna_histamine_origin",
+    "text": "Nguyên nhân do độc tố histamine từ lô cá ngừ bảo quản sai nhiệt độ",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_zero_fatalities",
+    "text": "Không có bất kỳ ca tử vong nào, tất cả đều đang hồi phục",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_no_virus_leak",
+    "text": "Không có mầm bệnh virus nguy hiểm nào bị rò rỉ",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_canteen_fridge_broken",
+    "text": "Tủ đông căng tin đã hỏng cảm biến nhiệt 3 ngày trước",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_lab_virus_leak",
+    "text": "Virus nhân tạo chết người rò rỉ từ phòng thí nghiệm ngầm",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.35
+  },
+  {
+    "id": "claim_patient_fatalities",
+    "text": "Đã có 5 bệnh nhân co giật nôn ra máu và tử vong",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.4
+  },
+  {
+    "id": "claim_cdc_quarantine_coverup",
+    "text": "Bệnh viện đang bị phong tỏa ngầm để bưng bít thảm họa dịch tễ",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.25
+  },
+  {
+    "id": "claim_black_bodybags_moved",
+    "text": "Thấy xe tải chở túi đen rời khỏi nhà xác",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_rumor_panicking_staff",
+    "text": "Nhân viên y tế hoang mang bỏ ca trực",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  }
+]

@@ -72,6 +72,11 @@ export function TopBar() {
           <span className="font-extrabold tracking-widest text-sm text-white/90">
             CITY OF LIES
           </span>
+          {session.scenario_title && (
+            <span className="hidden md:inline-block px-2.5 py-0.5 rounded-full bg-white/10 text-truth-glow text-xs font-mono font-medium border border-white/10 truncate max-w-xs">
+              {session.scenario_title}
+            </span>
+          )}
         </div>
 
         <div className="flex items-center gap-2 px-3 py-1 bg-black/40 rounded-md border border-white/10 font-mono text-sm text-gray-200">

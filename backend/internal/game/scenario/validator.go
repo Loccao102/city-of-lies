@@ -135,7 +135,25 @@ func ValidateScenarioBundle(b *ScenarioBundle) error {
 		}
 	}
 
-	// 8. Required Truth Fields
+	// 8. Public Events & Belief Seeds
+	for _, pe := range b.PublicEvents {
+		if pe.LocationID != "" && !locationSet[pe.LocationID] {
+			return fmt.Errorf("public event at second %d references unknown location: %s", pe.GameSecond, pe.LocationID)
+		}
+		for _, bs := range pe.BeliefSeeds {
+			if !agentSet[bs.AgentID] {
+				return fmt.Errorf("public event at second %d belief seed references unknown agent: %s", pe.GameSecond, bs.AgentID)
+			}
+			if !claimSet[bs.ClaimID] {
+				return fmt.Errorf("public event at second %d belief seed references unknown claim: %s", pe.GameSecond, bs.ClaimID)
+			}
+			if bs.Confidence < 0.0 || bs.Confidence > 1.0 {
+				return fmt.Errorf("public event at second %d belief seed confidence %f outside [0, 1]", pe.GameSecond, bs.Confidence)
+			}
+		}
+	}
+
+	// 9. Required Truth Fields
 	for _, rf := range b.Metadata.RequiredTruthFields {
 		if _, exists := b.TruthForm[rf]; !exists {
 			return fmt.Errorf("required truth field %q missing from truth-form.json", rf)

@@ -1,0 +1,86 @@
+[
+  {
+    "from_agent_id": "w_chief_eng_thanh",
+    "to_agent_id": "w_chemist_quynh",
+    "trust": 0.9,
+    "reason": "Cộng sự kiểm soát kỹ thuật và chất lượng nước"
+  },
+  {
+    "from_agent_id": "w_chief_eng_thanh",
+    "to_agent_id": "w_operator_duc",
+    "trust": 0.88,
+    "reason": "Chỉ đạo trực tiếp thợ sửa hố van"
+  },
+  {
+    "from_agent_id": "w_director_phat",
+    "to_agent_id": "w_chief_eng_thanh",
+    "trust": 0.85,
+    "reason": "Tin cậy kỹ sư trưởng"
+  },
+  {
+    "from_agent_id": "w_chemist_quynh",
+    "to_agent_id": "w_env_inspector_tram",
+    "trust": 0.92,
+    "reason": "Đồng nghiệp khoa học kiểm định mẫu nước"
+  },
+  {
+    "from_agent_id": "w_doctor_mai",
+    "to_agent_id": "w_chemist_quynh",
+    "trust": 0.85,
+    "reason": "Xác minh chỉ số độc chất phục vụ y tế"
+  },
+  {
+    "from_agent_id": "w_citizen_bac_nam",
+    "to_agent_id": "w_doctor_mai",
+    "trust": 0.88,
+    "reason": "Tin tưởng bác sĩ trạm y tế"
+  },
+  {
+    "from_agent_id": "w_teahouse_owner_hoa",
+    "to_agent_id": "w_blogger_trieu",
+    "trust": 0.75,
+    "reason": "Kể chuyện nước đổi màu cho blogger"
+  },
+  {
+    "from_agent_id": "w_blogger_trieu",
+    "to_agent_id": "w_citizen_bac_nam",
+    "trust": 0.6,
+    "reason": "Lan truyền bài viết trên mạng xã hội"
+  },
+  {
+    "from_agent_id": "w_police_kien",
+    "to_agent_id": "w_doctor_mai",
+    "trust": 0.85,
+    "reason": "Xác minh tình hình an ninh sức khỏe"
+  },
+  {
+    "from_agent_id": "w_journalist_phuong",
+    "to_agent_id": "w_env_inspector_tram",
+    "trust": 0.88,
+    "reason": "Lấy kết quả kiểm định chính thức"
+  },
+  {
+    "from_agent_id": "w_student_manh",
+    "to_agent_id": "w_teahouse_owner_hoa",
+    "trust": 0.7,
+    "reason": "Khách quen uống nước giải thích khoa học"
+  },
+  {
+    "from_agent_id": "w_plumber_vinh",
+    "to_agent_id": "w_citizen_bac_nam",
+    "trust": 0.8,
+    "reason": "Thợ sửa nước tin cậy của xóm"
+  },
+  {
+    "from_agent_id": "w_driver_bao",
+    "to_agent_id": "w_chief_eng_thanh",
+    "trust": 0.85,
+    "reason": "Nhận lệnh điều động xe bồn"
+  },
+  {
+    "from_agent_id": "w_resident_duc",
+    "to_agent_id": "w_citizen_bac_nam",
+    "trust": 0.85,
+    "reason": "Hàng xóm cựu chiến binh"
+  }
+]

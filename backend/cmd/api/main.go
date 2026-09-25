@@ -37,30 +37,33 @@ func main() {
 		os.Exit(1)
 	}
 
-	// 3. Load Master Scenario (Riverside Factory)
-	scenarioPath := filepath.Join(cfg.ScenarioDir, "riverside-factory")
-	if _, err := os.Stat(scenarioPath); os.IsNotExist(err) {
-		scenarioPath = filepath.Join("..", "data", "scenarios", "riverside-factory")
+	// 3. Load All Scenarios
+	scenariosDir := cfg.ScenarioDir
+	if _, err := os.Stat(filepath.Join(scenariosDir, "riverside-factory")); os.IsNotExist(err) {
+		scenariosDir = filepath.Join("..", "data", "scenarios")
 	}
-	if _, err := os.Stat(scenarioPath); os.IsNotExist(err) {
-		scenarioPath = filepath.Join("data", "scenarios", "riverside-factory")
+	if _, err := os.Stat(filepath.Join(scenariosDir, "riverside-factory")); os.IsNotExist(err) {
+		scenariosDir = filepath.Join("data", "scenarios")
 	}
 
-	logger.Info("loading scenario bundle", slog.String("path", scenarioPath))
-	bundle, err := scenario.LoadScenario(scenarioPath)
+	logger.Info("loading all scenario bundles", slog.String("dir", scenariosDir))
+	bundles, err := scenario.LoadAllScenarios(scenariosDir)
 	if err != nil {
-		logger.Error("failed to load scenario", slog.String("error", err.Error()))
+		logger.Error("failed to load scenarios", slog.String("error", err.Error()))
 		os.Exit(1)
 	}
 
-	if err := scenario.ValidateScenarioBundle(bundle); err != nil {
-		logger.Error("scenario validation failed", slog.String("error", err.Error()))
-		os.Exit(1)
+	defaultBundle := bundles["riverside-factory"]
+	if defaultBundle == nil {
+		for _, b := range bundles {
+			defaultBundle = b
+			break
+		}
 	}
-	logger.Info("scenario validated successfully", slog.String("scenario_id", bundle.Metadata.ID), slog.Int("agent_count", len(bundle.Agents)))
+	logger.Info("loaded scenario bundles successfully", slog.Int("count", len(bundles)))
 
 	// 4. Initialize Simulation Session Manager
-	sessionManager := simulation.NewSessionManager(bundle, cfg)
+	sessionManager := simulation.NewMultiScenarioSessionManager(bundles, defaultBundle, cfg)
 
 	// 5. Initialize Dialogue Provider
 	var dialProvider *dialogue.TemplateProvider
@@ -71,6 +74,7 @@ func main() {
 
 	// 7. Initialize Application Services
 	startSessionSvc := services.NewStartSessionService(sessionManager)
+	listScenariosSvc := services.NewListScenariosService(sessionManager)
 	getStateSvc := services.NewGetStateService(sessionManager)
 	interviewSvc := services.NewInterviewService(sessionManager, dialProvider)
 	inspectSvc := services.NewInspectService(sessionManager)
@@ -81,6 +85,7 @@ func main() {
 	// 8. Initialize HTTP Handlers
 	healthHandler := handlers.NewHealthHandler(func() bool { return true })
 	sessionsHandler := handlers.NewSessionsHandler(startSessionSvc, getStateSvc)
+	scenariosHandler := handlers.NewScenariosHandler(listScenariosSvc)
 	agentsHandler := handlers.NewAgentsHandler(sessionManager, interviewSvc)
 	investigationHandler := handlers.NewInvestigationHandler(inspectSvc, notebookSvc, correctionSvc, truthSvc)
 	wsHandler := handlers.NewWSHandler(hub, sessionManager)
@@ -91,6 +96,7 @@ func main() {
 		Logger:        logger,
 		HealthHandler: healthHandler,
 		Sessions:      sessionsHandler,
+		Scenarios:     scenariosHandler,
 		Agents:        agentsHandler,
 		Investigation: investigationHandler,
 		WSHandler:     wsHandler,

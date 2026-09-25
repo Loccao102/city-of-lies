@@ -1,13 +1,18 @@
 # Windows PowerShell Soak Test Runner (Phase 11)
 param (
     [int]$Runs = 100,
-    [int]$Workers = 10
+    [int]$Workers = 10,
+    [string]$Scenario = ""
 )
 
 Write-Host "Starting City of Lies Automated Soak Test ($Runs seeds, $Workers workers)..." -ForegroundColor Cyan
 
 Push-Location backend
-go run ./cmd/soak-test -runs $Runs -workers $Workers
+if ($Scenario -ne "") {
+    go run ./cmd/soak-test -runs $Runs -workers $Workers -scenario $Scenario
+} else {
+    go run ./cmd/soak-test -runs $Runs -workers $Workers
+}
 $code = $LASTEXITCODE
 Pop-Location
 

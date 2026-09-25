@@ -24,6 +24,8 @@ type Scheduler struct {
 	cooldowns       *CooldownTracker
 	pairCooldownSec int64
 	maxPerTick      int
+	claimRoles      map[string]string
+	claimWeights    map[string]float64
 }
 
 func NewScheduler(rng *SeededRNG, pairCooldownSec int64, maxPerTick int) *Scheduler {
@@ -38,7 +40,14 @@ func NewScheduler(rng *SeededRNG, pairCooldownSec int64, maxPerTick int) *Schedu
 		cooldowns:       NewCooldownTracker(),
 		pairCooldownSec: pairCooldownSec,
 		maxPerTick:      maxPerTick,
+		claimRoles:      make(map[string]string),
+		claimWeights:    make(map[string]float64),
 	}
+}
+
+func (s *Scheduler) SetClaimMetadata(roles map[string]string, weights map[string]float64) {
+	s.claimRoles = roles
+	s.claimWeights = weights
 }
 
 // PlanTickInteractions identifies valid communication pairs and salient claims for the current tick.
@@ -73,7 +82,7 @@ func (s *Scheduler) PlanTickInteractions(
 			if conf < 0.20 {
 				continue // Don't actively spread claims with very low conviction
 			}
-			novelty, emotionalWeight, trending := getClaimEmotionalWeights(claimID)
+			novelty, emotionalWeight, trending := s.getClaimEmotionalWeights(claimID)
 
 			salience := CalculateSalience(SalienceInput{
 				Confidence:      conf,
@@ -144,7 +153,30 @@ func (s *Scheduler) PlanTickInteractions(
 	return scheduled
 }
 
-func getClaimEmotionalWeights(claimID string) (novelty, emotionalWeight, trending float64) {
+func (s *Scheduler) getClaimEmotionalWeights(claimID string) (novelty, emotionalWeight, trending float64) {
+	// 1. Dynamic lookup by claim role & narrative weight if metadata exists
+	if s.claimRoles != nil {
+		role, hasRole := s.claimRoles[claimID]
+		weight := s.claimWeights[claimID]
+		if hasRole {
+			switch role {
+			case "primary_false":
+				if weight >= 0.38 { // Highest shock value: casualties / deaths / bank run / collapse
+					return 0.95, 0.98, 0.95
+				} else if weight <= 0.28 { // Intermediate escalation: coverup / conspiracy / corruption
+					return 0.85, 0.88, 0.85
+				} else { // Initial sensational rumor: explosion / virus / poison
+					return 0.70, 0.80, 0.75
+				}
+			case "secondary_false":
+				return 0.70, 0.75, 0.70
+			case "fact":
+				return 0.30, 0.35, 0.30
+			}
+		}
+	}
+
+	// 2. Legacy fallback for riverside hardcoded claim IDs
 	switch claimID {
 	case "claim_multiple_deaths":
 		return 0.95, 0.98, 0.95

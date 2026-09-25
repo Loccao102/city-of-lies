@@ -22,6 +22,8 @@
 | **Phase 10** | External LLM Integration (OpenAI / Claude / Gemini) | 🟡 **Chờ API Key** | Template Provider đã chạy tốt; chờ cắm Key thật |
 | **Phase 11** | Cân bằng tự động (Soak Test), Visual Polish & Âm thanh | ✅ **Hoàn thành** | 100-seed soak test PASS (100%), Web Audio engine, strobe lights |
 | **Phase 12** | CI/CD GitHub Actions & Demo Deployment | ✅ **Hoàn thành** | GitHub Actions matrix (Go + Next.js build + Soak check) |
+| **Phase 13** | Multi-Scenario System & Random Scenario Picker | ✅ **Hoàn thành** | 5 kịch bản hoàn chỉnh (Riverside, Metro Hospital, Midtown Bank, Subway Line 3, City Water), chế độ bốc ngẫu nhiên mỗi lần chơi |
+
 
 ---
 
@@ -81,6 +83,27 @@ Game hiện đang sử dụng **Deterministic Template Dialogue Provider** (mi�
   - Deploy Frontend Next.js lên Vercel / Cloudflare Pages.
 - [ ] **Chụp ảnh Screenshots & Quay video Demo**:
   - Bổ sung ảnh chụp giao diện bản đồ 3D, thanh HUD cảnh báo, sổ tay điều tra và màn hình báo cáo After-Action Report vào `README.md`.
+
+---
+
+### 5. Phase 13 — Hệ Thống Đa Kịch Bản (Multi-Scenario System) & Cân Bằng Toàn Diện (Soak Calibrated)
+- [x] **5 Kịch Bản Hoàn Chỉnh (Full Scenarios)**:
+  1. `riverside-factory`: Vụ Cháy Kho Nhà Máy Riverside (Tin đồn nổ hóa chất & công ty giấu xác).
+  2. `metro-hospital-outbreak`: Báo Động Bệnh Viện Metro (Ngộ độc histamine cá ngừ vs Tin đồn rò rỉ virus phòng lab).
+  3. `midtown-bank-run`: Cơn Hoảng Loạn Ngân Hàng Midtown (Deadlock nâng cấp IT vs Tin đồn vỡ nợ, sếp ôm vàng bỏ trốn).
+  4. `subway-line3-standstill`: Chuyến Tàu Ngầm Tuyến Số 3 (Chập cáp tín hiệu ray dừng tàu vs Tin đồn khủng bố hơi ngạt chết người).
+  5. `city-water-panic`: Khủng Hoảng Nguồn Nước Thành Phố (Sự cố van áp lực sục cặn oxit sắt vs Tin đồn xyanua đầu độc nguồn nước).
+- [x] **Kiến Trúc Lan Truyền Tin Đồn Động (Data-driven Belief Seeds & Event Timelines)**:
+  - Cấu trúc `BeliefSeed` và `PublicEventSeed` hỗ trợ nhúng hạt giống tin đồn trực tiếp vào sự kiện thời gian thực.
+  - Bộ điều phối `Scheduler` tự động phân giải trọng số kích động cảm xúc (Emotional Weights: 0.98 cho tin tử vong, 0.88 cho tin bưng bít, 0.80 cho tin sự cố ban đầu) theo vai trò `primary_false` và `weight` của từng kịch bản.
+- [x] **Cân Bằng Tự Động Toàn Diện (100% Soak Test PASS trên cả 5 kịch bản)**:
+  - Cả 5 kịch bản đều đạt **100.0% defeat rate** khi không có người chơi can thiệp (vượt chuẩn > 90%).
+  - Thời gian thất bại trung vị (Median Time to Defeat) đạt chuẩn từ **31 phút 09 giây** đến **32 phút 23 giây**, đồng nhất tuyệt đối với thiết kế Master Bible.
+- [x] **Tích Hợp Giao Diện Frontend (Dynamic Scenario UI)**:
+  - Menu chuyển đổi kịch bản mượt mà trên thanh TopBar và màn hình khởi đầu.
+  - Chế độ "🎲 Bốc Ngẫu Nhiên" (Random Scenario Picker) cho mỗi lượt chơi mới.
+  - Modal nộp sự thật (Submit Truth Modal) tự động tạo form câu hỏi và đáp án động khớp 100% với `truth-form.json` của kịch bản đang chọn.
+  - Bản đồ 3D tự động thích ứng tên 12 địa điểm và màu sắc trang phục theo vai trò nhân vật của từng kịch bản.
 
 ---
 

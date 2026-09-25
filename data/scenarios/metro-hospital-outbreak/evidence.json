@@ -1,0 +1,67 @@
+[
+  {
+    "id": "ev_canteen_inspection",
+    "name": "Biên bản kiểm tra an toàn căng tin",
+    "description": "Biên bản ghi nhận tủ đông số 2 bảo quản cá ngừ bị hỏng rơ-le nhiệt, nhiệt độ thực tế 14.8°C khiến vi khuẩn phân giải sinh lượng lớn histamine.",
+    "location_id": "nutrition_dept",
+    "reliability": 0.98,
+    "source_category": "official_inspection",
+    "supports": [
+      "claim_canteen_fridge_broken",
+      "claim_tuna_histamine_origin",
+      "claim_poisoning_occurred"
+    ],
+    "contradicts": [
+      "claim_lab_virus_leak"
+    ],
+    "unlock_condition": "Kiểm tra kho dinh dưỡng sau khi nói chuyện với Thanh tra Hùng hoặc Kỹ thuật viên Sơn."
+  },
+  {
+    "id": "ev_er_logbook",
+    "name": "Sổ nhật ký tiếp nhận cấp cứu",
+    "description": "Danh sách 18 ca cấp cứu: Tất cả chẩn đoán 'Hội chứng ngộ độc thức ăn dạng histamine', sinh hiệu ổn định, 0 trường hợp tử vong hay thở máy.",
+    "location_id": "er_triage",
+    "reliability": 0.99,
+    "source_category": "medical_record",
+    "supports": [
+      "claim_poisoning_occurred",
+      "claim_zero_fatalities"
+    ],
+    "contradicts": [
+      "claim_patient_fatalities",
+      "claim_lab_virus_leak"
+    ],
+    "unlock_condition": "Khám xét bàn phân loại sau khi trao đổi với Bác sĩ Nghiêm hoặc Y tá Hoa."
+  },
+  {
+    "id": "ev_lab_biosafety_audit",
+    "name": "Biên bản an toàn sinh học Lab Vi sinh",
+    "description": "Chứng nhận phòng xét nghiệm cấp độ 2: Áp suất âm chuẩn, chỉ lưu giữ các chủng vi khuẩn Gram âm/dương thường quy, không có mẫu virus lây nhiễm nguy hiểm.",
+    "location_id": "lab_biosafety",
+    "reliability": 0.97,
+    "source_category": "scientific_audit",
+    "supports": [
+      "claim_no_virus_leak"
+    ],
+    "contradicts": [
+      "claim_lab_virus_leak"
+    ],
+    "unlock_condition": "Kiểm tra phòng xét nghiệm sau khi phỏng vấn Kỹ thuật viên Minh."
+  },
+  {
+    "id": "ev_mortuary_clearance",
+    "name": "Sổ theo dõi bàn giao nhà tang lễ",
+    "description": "Nhật ký nhà xác ngày hôm nay ghi nhận 0 ca tiếp nhận mới từ các khoa phòng; không có thi thể nào được chuyển đi trong ngày.",
+    "location_id": "mortuary",
+    "reliability": 0.99,
+    "source_category": "administrative_record",
+    "supports": [
+      "claim_zero_fatalities"
+    ],
+    "contradicts": [
+      "claim_patient_fatalities",
+      "claim_black_bodybags_moved"
+    ],
+    "unlock_condition": "Kiểm tra nhà tang lễ sau khi hỏi Bác Vạn."
+  }
+]

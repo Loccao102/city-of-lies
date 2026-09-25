@@ -1,0 +1,222 @@
+[
+  {
+    "game_second": 120,
+    "event_type": "train_stopped",
+    "headline": "Tàu Metro E304 dừng khẩn cấp giữa đường hầm",
+    "description": "Tín hiệu đèn xanh chuyển đỏ tự động khiến hệ thống phanh kích hoạt.",
+    "location_id": "train_tunnel_section",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 300,
+    "event_type": "evacuation_started",
+    "headline": "Lực lượng cứu nạn tiếp cận đưa hành khách đi bộ",
+    "description": "Hành khách được hướng dẫn trật tự men theo lối đi an toàn trong hầm.",
+    "location_id": "platform_1",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 420,
+    "event_type": "rumor_seed",
+    "headline": "Bà Ba quầy báo bàn tán về khói bốc lên",
+    "description": "Bà Ba nói với tài xế Thành rằng ngửi thấy mùi khét độc hại từ cửa thông gió.",
+    "location_id": "subway_kiosk",
+    "belief_seeds": [
+      {
+        "agent_id": "s_kiosk_vendor_ba",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.45,
+        "reasoning": "Thấy khói mờ bốc lên từ hầm thông gió kèm mùi khét lẹt."
+      },
+      {
+        "agent_id": "s_taxi_driver_thanh",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.4,
+        "reasoning": "Nghe tiếng còi hụ xe cứu thương dồn dập."
+      }
+    ]
+  },
+  {
+    "game_second": 480,
+    "event_type": "rumor_transmission",
+    "headline": "Thân nhân hành khách hoang mang",
+    "description": "Chị Hương gào khóc tìm con khi thấy xe cứu hỏa đổ về ga.",
+    "location_id": "station_concourse",
+    "belief_seeds": [
+      {
+        "agent_id": "s_taxi_driver_thanh",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.5,
+        "reasoning": "Hành khách chạy lên từ cửa ga mặt mày tái mét."
+      },
+      {
+        "agent_id": "s_mother_huong",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.45,
+        "reasoning": "Mất liên lạc điện thoại với con gái trong hầm."
+      }
+    ]
+  },
+  {
+    "game_second": 720,
+    "event_type": "blog_post",
+    "headline": "Tiktoker Long livestream nghi vấn khủng bố",
+    "description": "Video quay cảnh xe hú còi giật tít: 'Báo động đỏ: Nghi nổ bom ga ngầm'.",
+    "location_id": "street_entrance",
+    "belief_seeds": [
+      {
+        "agent_id": "s_livestreamer_long",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.6,
+        "reasoning": "Quay cảnh lực lượng phản ứng nhanh mang mặt nạ phòng độc."
+      }
+    ]
+  },
+  {
+    "game_second": 840,
+    "event_type": "headline_update",
+    "headline": "Long đổi tiêu đề: 'Khủng bố xả hơi ngạt trên tàu Metro?'",
+    "description": "Bài đăng cảnh báo hơi độc nhận hàng chục nghìn lượt xem trực tiếp.",
+    "location_id": "street_entrance",
+    "belief_seeds": [
+      {
+        "agent_id": "s_livestreamer_long",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.72,
+        "reasoning": "Có người bình luận nói thấy hành khách ngất xỉu nôn mửa."
+      },
+      {
+        "agent_id": "s_mother_huong",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.68,
+        "reasoning": "Xem livestream hốt hoảng khóc ngất."
+      }
+    ]
+  },
+  {
+    "game_second": 900,
+    "event_type": "social_viral",
+    "headline": "Mạng xã hội hoảng loạn chia sẻ tin tấn công khí độc",
+    "description": "Các diễn đàn giao thông lan truyền thông tin thất thiệt.",
+    "location_id": "street_entrance",
+    "belief_seeds": [
+      {
+        "agent_id": "s_mother_huong",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.8,
+        "reasoning": "Thấy đám đông nhốn nháo lan truyền bài viết."
+      },
+      {
+        "agent_id": "s_journalist_quang",
+        "claim_id": "claim_terrorist_gas_attack",
+        "confidence": 0.75,
+        "reasoning": "Tin tức lan quá nhanh chưa kịp kiểm chứng hiện trường."
+      }
+    ]
+  },
+  {
+    "game_second": 1080,
+    "event_type": "official_statement",
+    "headline": "Giám đốc đường sắt né tránh xác nhận tình trạng đường hầm",
+    "description": "Phát biểu quanh co khiến dư luận nghi ngờ sập hầm và bưng bít thông tin.",
+    "location_id": "station_control_room",
+    "belief_seeds": [
+      {
+        "agent_id": "s_livestreamer_long",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.65,
+        "reasoning": "Lãnh đạo metro không công bố hình ảnh bên trong hầm."
+      },
+      {
+        "agent_id": "s_kiosk_vendor_ba",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.65,
+        "reasoning": "Nghe đồn trần hầm bị nứt sập kẹt tàu."
+      },
+      {
+        "agent_id": "s_taxi_driver_thanh",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.6,
+        "reasoning": "Thấy xe cứu hộ mang thiết bị khoan cắt vào hầm."
+      },
+      {
+        "agent_id": "s_mother_huong",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.6,
+        "reasoning": "Lo sợ con gái bị kẹt dưới đống đổ nát."
+      },
+      {
+        "agent_id": "s_passenger_nga",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.6,
+        "reasoning": "Lúc chạy thấy bụi bay mù mịt trong hầm tối."
+      },
+      {
+        "agent_id": "s_journalist_quang",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.7,
+        "reasoning": "Nhà ga đóng cửa kín mít không cho báo chí vào."
+      },
+      {
+        "agent_id": "s_station_master_vinh",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.5,
+        "reasoning": "Áp lực điều phối khiến căng thẳng cao độ."
+      },
+      {
+        "agent_id": "s_gate_attendant_lan",
+        "claim_id": "claim_tunnel_collapse_denial",
+        "confidence": 0.48,
+        "reasoning": "Khách thoát hiểm lên kể hầm rung lắc mạnh."
+      }
+    ]
+  },
+  {
+    "game_second": 1200,
+    "event_type": "livestream_claim",
+    "headline": "Tiktoker Long livestream khẳng định hàng trăm người chết ngạt",
+    "description": "Long phát sóng nói có người thân gọi báo nạn nhân ngất xỉu hàng loạt.",
+    "location_id": "street_entrance",
+    "belief_seeds": [
+      {
+        "agent_id": "s_livestreamer_long",
+        "claim_id": "claim_hundreds_suffocated",
+        "confidence": 0.75,
+        "reasoning": "Khẳng định trên livestream có hàng trăm người chết ngạt trong toa kín."
+      },
+      {
+        "agent_id": "s_kiosk_vendor_ba",
+        "claim_id": "claim_hundreds_suffocated",
+        "confidence": 0.68,
+        "reasoning": "Nghe người ta kháo nhau xe cứu thương chở xác đi."
+      },
+      {
+        "agent_id": "s_mother_huong",
+        "claim_id": "claim_hundreds_suffocated",
+        "confidence": 0.55,
+        "reasoning": "Nghe tin có người chết ngạt liền ngất lịm."
+      }
+    ]
+  },
+  {
+    "game_second": 1320,
+    "event_type": "headline_fatalities",
+    "headline": "Báo lá cải đưa tin thảm họa thương vong đường hầm",
+    "description": "Thông tin chưa kiểm chứng được lan truyền với tốc độ chóng mặt.",
+    "location_id": "street_entrance",
+    "belief_seeds": [
+      {
+        "agent_id": "s_livestreamer_long",
+        "claim_id": "claim_hundreds_suffocated",
+        "confidence": 0.82,
+        "reasoning": "Cập nhật tiêu đề xác nhận thảm kịch chết ngạt hàng loạt."
+      },
+      {
+        "agent_id": "s_journalist_quang",
+        "claim_id": "claim_hundreds_suffocated",
+        "confidence": 0.78,
+        "reasoning": "Bài viết câu view của đối thủ cạnh tranh leo top thịnh hành."
+      }
+    ]
+  }
+]

@@ -6,9 +6,31 @@ export type SessionStatus =
   | "lost_timeout"
   | "aborted";
 
+export interface LocationItem {
+  id: string;
+  name: string;
+  description: string;
+  position: { x: number; y: number; z: number };
+  connected_locations?: string[];
+}
+
+export interface ScenarioSummary {
+  id: string;
+  title: string;
+  version: number;
+  description: string;
+  agent_count: number;
+  location_count: number;
+  evidence_count: number;
+  defeat_ratio: number;
+  primary_claims: string[];
+}
+
 export interface SessionResponse {
   id: string;
   scenario_id: string;
+  scenario_title?: string;
+  scenario_description?: string;
   status: SessionStatus;
   game_second: number;
   primary_false_narrative_ratio: number;
@@ -17,7 +39,9 @@ export interface SessionResponse {
   simulation_seed: number;
   revision: number;
   sequence: number;
+  locations?: LocationItem[];
 }
+
 
 export interface AgentSummary {
   id: string;

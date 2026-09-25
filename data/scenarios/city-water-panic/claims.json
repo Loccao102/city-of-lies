@@ -1,0 +1,72 @@
+[
+  {
+    "id": "claim_water_discoloration_occurred",
+    "text": "Nước máy sinh hoạt tại khu Tây bị đục và đổi màu nâu đỏ trong 3 giờ",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_mineral_sediment_origin",
+    "text": "Hiện tượng do lớp bùn oxit sắt khoáng tự nhiên bị sục lên khi van áp lực gặp sự cố",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_toxicity_negative",
+    "text": "Mẫu nước kiểm nghiệm âm tính 100% với độc tố xyanua và kim loại nặng nguy hiểm",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_zero_fatalities",
+    "text": "Không có bất kỳ trường hợp nào ngộ độc hay tử vong vì nước máy",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_water_flushed_clear",
+    "text": "Hệ thống đã xả đáy xong và nước máy đã trong trở lại đạt tiêu chuẩn",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_cyanide_poisoning",
+    "text": "Nguồn nước sạch thành phố đã bị đầu độc bằng hóa chất xyanua công nghiệp",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.35
+  },
+  {
+    "id": "claim_mass_poisoning_deaths",
+    "text": "Nhiều gia đình uống nước buổi sáng đã bị co giật tử vong tại nhà",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.4
+  },
+  {
+    "id": "claim_water_plant_coverup",
+    "text": "Công ty nước sạch biết có độc từ tuần trước nhưng cố tình giấu nhẹm",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.25
+  },
+  {
+    "id": "claim_toxic_river_waste",
+    "text": "Có tàu chở rác thải lén đổ hóa chất độc hại vào bể chứa đầu nguồn",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_citywide_water_cutoff_month",
+    "text": "Toàn thành phố sẽ bị cắt nước sinh hoạt trong 1 tháng tới",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "id": "bank_hall",
+    "name": "Đại Sảnh Giao Dịch",
+    "description": "Hàng trăm khách hàng chen lấn xếp hàng rút tiền mặt.",
+    "position": {
+      "x": -24,
+      "y": 0,
+      "z": -16
+    },
+    "connected_locations": [
+      "atm_gallery",
+      "teller_counters",
+      "vip_lounge"
+    ]
+  },
+  {
+    "id": "atm_gallery",
+    "name": "Khu Cây Rút Tiền ATM",
+    "description": "Dãy cây ATM màn hình báo lỗi bảo trì hệ thống kết nối.",
+    "position": {
+      "x": -32,
+      "y": 0,
+      "z": -24
+    },
+    "connected_locations": [
+      "bank_hall",
+      "financial_square"
+    ]
+  },
+  {
+    "id": "teller_counters",
+    "name": "Quầy Giao Dịch Viên",
+    "description": "Nơi các nhân viên giao dịch đang trấn an khách hàng.",
+    "position": {
+      "x": -20,
+      "y": 0,
+      "z": -26
+    },
+    "connected_locations": [
+      "bank_hall",
+      "cash_vault"
+    ]
+  },
+  {
+    "id": "cash_vault",
+    "name": "Hầm Kho Tiền Trung Tâm",
+    "description": "Hầm chứa tiền và vàng dự trữ của ngân hàng được bảo vệ nghiêm ngặt.",
+    "position": {
+      "x": -28,
+      "y": 0,
+      "z": -8
+    },
+    "connected_locations": [
+      "teller_counters",
+      "security_control"
+    ]
+  },
+  {
+    "id": "security_control",
+    "name": "Phòng An Ninh Giám Sát",
+    "description": "Phòng điều khiển camera CCTV toàn bộ chi nhánh.",
+    "position": {
+      "x": -14,
+      "y": 0,
+      "z": -18
+    },
+    "connected_locations": [
+      "cash_vault",
+      "bank_hall"
+    ]
+  },
+  {
+    "id": "it_server_room",
+    "name": "Trung Tâm Máy Chủ IT",
+    "description": "Phòng máy chủ nơi các kỹ sư khắc phục sự cố phần mềm.",
+    "position": {
+      "x": 2,
+      "y": 0,
+      "z": 6
+    },
+    "connected_locations": [
+      "bank_hall",
+      "boardroom"
+    ]
+  },
+  {
+    "id": "boardroom",
+    "name": "Phòng Họp Ban Giám Đốc",
+    "description": "Ban điều hành đang họp khẩn cấp để đưa ra thông cáo báo chí.",
+    "position": {
+      "x": 26,
+      "y": 0,
+      "z": -20
+    },
+    "connected_locations": [
+      "it_server_room",
+      "vip_lounge"
+    ]
+  },
+  {
+    "id": "vip_lounge",
+    "name": "Phòng Tiếp Khách VIP",
+    "description": "Các nhà đầu tư lớn đang yêu cầu gặp trực tiếp Tổng Giám đốc.",
+    "position": {
+      "x": -6,
+      "y": 0,
+      "z": -6
+    },
+    "connected_locations": [
+      "bank_hall",
+      "boardroom"
+    ]
+  },
+  {
+    "id": "financial_square",
+    "name": "Quảng Trường Tài Chính",
+    "description": "Đông đảo người dân và đám đông hiếu kỳ tụ tập trước cổng ngân hàng.",
+    "position": {
+      "x": 10,
+      "y": 0,
+      "z": -4
+    },
+    "connected_locations": [
+      "atm_gallery",
+      "broker_cafe"
+    ]
+  },
+  {
+    "id": "broker_cafe",
+    "name": "Cà Phê Môi Giới Chứng Khoán",
+    "description": "Nơi các tay săn tin đồn và môi giới tài chính bàn tán rôm rả.",
+    "position": {
+      "x": 18,
+      "y": 0,
+      "z": 12
+    },
+    "connected_locations": [
+      "financial_square",
+      "news_bureau"
+    ]
+  },
+  {
+    "id": "news_bureau",
+    "name": "Tòa Soạn Bản Tin Thị Trường",
+    "description": "Phóng viên tài chính đang chuẩn bị phát sóng bản tin trực tiếp.",
+    "position": {
+      "x": -22,
+      "y": 0,
+      "z": 14
+    },
+    "connected_locations": [
+      "broker_cafe"
+    ]
+  },
+  {
+    "id": "central_bank_desk",
+    "name": "Văn Phòng Đại Diện Ngân Hàng Nhà Nước",
+    "description": "Tổ giám sát của Ngân hàng Trung ương theo dõi thanh khoản.",
+    "position": {
+      "x": -10,
+      "y": 0,
+      "z": 18
+    },
+    "connected_locations": [
+      "financial_square"
+    ]
+  }
+]

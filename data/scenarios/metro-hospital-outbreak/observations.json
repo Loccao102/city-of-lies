@@ -1,0 +1,98 @@
+[
+  {
+    "agent_id": "h_dr_nghiem",
+    "claim_id": "claim_poisoning_occurred",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_dr_nghiem",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.9,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_dr_nghiem",
+    "claim_id": "claim_no_virus_leak",
+    "confidence": 0.85,
+    "basis": "clinical_judgment"
+  },
+  {
+    "agent_id": "h_nurse_hoa",
+    "claim_id": "claim_poisoning_occurred",
+    "confidence": 0.9,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_nurse_hoa",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.85,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_tech_minh",
+    "claim_id": "claim_no_virus_leak",
+    "confidence": 0.98,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_chef_tam",
+    "claim_id": "claim_canteen_fridge_broken",
+    "confidence": 0.8,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_cleaner_bich",
+    "claim_id": "claim_canteen_fridge_broken",
+    "confidence": 0.9,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_technician_son",
+    "claim_id": "claim_canteen_fridge_broken",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_mortuary_van",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.95,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "h_patient_tri",
+    "claim_id": "claim_poisoning_occurred",
+    "confidence": 0.95,
+    "basis": "personal_experience"
+  },
+  {
+    "agent_id": "h_patient_tri",
+    "claim_id": "claim_tuna_histamine_origin",
+    "confidence": 0.8,
+    "basis": "medical_knowledge"
+  },
+  {
+    "agent_id": "h_pharmacist_yen",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.85,
+    "basis": "drug_requisition_record"
+  },
+  {
+    "agent_id": "h_blogger_khoa",
+    "claim_id": "claim_lab_virus_leak",
+    "confidence": 0.4,
+    "basis": "speculation"
+  },
+  {
+    "agent_id": "h_vendor_mai",
+    "claim_id": "claim_lab_virus_leak",
+    "confidence": 0.35,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "h_guard_dung",
+    "claim_id": "claim_lab_virus_leak",
+    "confidence": 0.3,
+    "basis": "hearsay"
+  }
+]

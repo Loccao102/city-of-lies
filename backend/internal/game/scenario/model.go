@@ -64,12 +64,20 @@ type EvidenceSeed struct {
 	UnlockCondition string   `json:"unlock_condition"`
 }
 
+type BeliefSeed struct {
+	AgentID    string  `json:"agent_id"`
+	ClaimID    string  `json:"claim_id"`
+	Confidence float64 `json:"confidence"`
+	Reasoning  string  `json:"reasoning,omitempty"`
+}
+
 type PublicEventSeed struct {
-	GameSecond  int64  `json:"game_second"`
-	EventType   string `json:"event_type"`
-	Headline    string `json:"headline"`
-	Description string `json:"description"`
-	LocationID  string `json:"location_id"`
+	GameSecond  int64        `json:"game_second"`
+	EventType   string       `json:"event_type"`
+	Headline    string       `json:"headline"`
+	Description string       `json:"description"`
+	LocationID  string       `json:"location_id"`
+	BeliefSeeds []BeliefSeed `json:"belief_seeds,omitempty"`
 }
 
 type TruthFormField struct {

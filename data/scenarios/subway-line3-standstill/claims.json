@@ -1,0 +1,72 @@
+[
+  {
+    "id": "claim_train_stopped_safely",
+    "text": "Đoàn tàu E304 tự động phanh dừng khẩn cấp an toàn trong hầm",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_signal_cable_short",
+    "text": "Nguyên nhân do chập đoản mạch cáp tín hiệu hộp chuyển hướng ray",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_ventilation_working",
+    "text": "Hệ thống thông gió hầm hoạt động hết công suất, cung cấp đủ dưỡng khí",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_all_evacuated_zero_deaths",
+    "text": "120 hành khách được sơ tán an toàn, 0 người tử vong",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_no_structural_collapse",
+    "text": "Kết cấu đường hầm bê tông kiên cố, hoàn toàn không bị sập",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_terrorist_gas_attack",
+    "text": "Có vụ tấn công khủng bố bằng thiết bị nổ khí độc thần kinh trên tàu",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.35
+  },
+  {
+    "id": "claim_hundreds_suffocated",
+    "text": "Hàng trăm hành khách đã ngạt thở tử vong kẹt cứng trong các toa tàu kín",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.4
+  },
+  {
+    "id": "claim_tunnel_collapse_denial",
+    "text": "Đường hầm đã sập một đoạn và nhà quản lý đường sắt đang chối bỏ",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.25
+  },
+  {
+    "id": "claim_smoke_is_chemical_weapon",
+    "text": "Mùi khét bốc lên là vũ khí hóa học hủy diệt",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_emergency_doors_welded",
+    "text": "Cửa thoát hiểm bị khóa chặt không ai ra được",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  }
+]

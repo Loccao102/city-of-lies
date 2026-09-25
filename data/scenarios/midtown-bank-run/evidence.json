@@ -1,0 +1,67 @@
+[
+  {
+    "id": "ev_it_incident_log",
+    "name": "Nhật ký hệ thống máy chủ IT (Server Syslog)",
+    "description": "Log máy chủ Core Banking ghi nhận: 'Deadlock on transaction table during patch v4.12 migration, auto-rollback initiated at 14:18'. Không có xâm nhập dữ liệu trái phép.",
+    "location_id": "it_server_room",
+    "reliability": 0.99,
+    "source_category": "technical_log",
+    "supports": [
+      "claim_tech_outage_occurred",
+      "claim_database_deadlock_cause"
+    ],
+    "contradicts": [
+      "claim_bank_insolvency",
+      "claim_atm_cash_empty_forever"
+    ],
+    "unlock_condition": "Kiểm tra phòng máy chủ sau khi trao đổi với Giám đốc IT Thắng hoặc Kỹ sư Đức."
+  },
+  {
+    "id": "ev_central_vault_audit",
+    "name": "Biên bản kiểm kê kho quỹ khẩn cấp",
+    "description": "Biên bản kiểm quỹ có chữ ký liên ngành lúc 14:30: Hầm tiền Midtown lưu trữ 2.150 tỷ VNĐ tiền mặt và 1.200 cây vàng SJC nguyên đai nguyên kiện, đủ đáp ứng 100% thanh khoản.",
+    "location_id": "cash_vault",
+    "reliability": 0.99,
+    "source_category": "official_audit",
+    "supports": [
+      "claim_liquidity_sufficient"
+    ],
+    "contradicts": [
+      "claim_bank_insolvency",
+      "claim_ceo_fled_with_gold"
+    ],
+    "unlock_condition": "Xem biên bản trong hầm tiền sau khi nói chuyện với Trưởng kho Hùng."
+  },
+  {
+    "id": "ev_central_bank_bulletin",
+    "name": "Công điện khẩn Ngân hàng Nhà nước",
+    "description": "Công điện xác nhận Ngân hàng Midtown hoạt động an toàn, sự cố kỹ thuật ATM đang được khắc phục và khẳng định quyền lợi người gửi tiền được Nhà nước bảo đảm tuyệt đối.",
+    "location_id": "central_bank_desk",
+    "reliability": 0.98,
+    "source_category": "regulatory_statement",
+    "supports": [
+      "claim_liquidity_sufficient",
+      "claim_tech_outage_occurred"
+    ],
+    "contradicts": [
+      "claim_account_freeze_order",
+      "claim_bank_insolvency"
+    ],
+    "unlock_condition": "Lấy tại bàn giám sát sau khi phỏng vấn Thanh tra Hoa."
+  },
+  {
+    "id": "ev_cctv_ceo_presence",
+    "name": "Băng ghi hình CCTV phòng họp ban lãnh đạo",
+    "description": "Camera an ninh xác thực Tổng Giám đốc Viết liên tục có mặt tại phòng họp tầng 3 chỉ đạo ứng phó từ 14:00 đến hiện tại, hoàn toàn không rời khỏi tòa nhà.",
+    "location_id": "security_control",
+    "reliability": 0.96,
+    "source_category": "visual_record",
+    "supports": [
+      "claim_ceo_present"
+    ],
+    "contradicts": [
+      "claim_ceo_fled_with_gold"
+    ],
+    "unlock_condition": "Trích xuất tại phòng an ninh sau khi trao đổi với Nhân viên Hiếu."
+  }
+]

@@ -85,3 +85,36 @@ func readJSONFile(path string, target interface{}) error {
 	}
 	return json.Unmarshal(data, target)
 }
+
+// LoadAllScenarios scans baseDir for subdirectories containing scenario.json and loads them into a map.
+func LoadAllScenarios(baseDir string) (map[string]*ScenarioBundle, error) {
+	entries, err := os.ReadDir(baseDir)
+	if err != nil {
+		return nil, fmt.Errorf("read scenarios directory %s: %w", baseDir, err)
+	}
+
+	bundles := make(map[string]*ScenarioBundle)
+	for _, entry := range entries {
+		if !entry.IsDir() {
+			continue
+		}
+		subDir := filepath.Join(baseDir, entry.Name())
+		if _, err := os.Stat(filepath.Join(subDir, "scenario.json")); err == nil {
+			bundle, err := LoadScenario(subDir)
+			if err != nil {
+				return nil, fmt.Errorf("load scenario %s: %w", entry.Name(), err)
+			}
+			if err := ValidateScenarioBundle(bundle); err != nil {
+				return nil, fmt.Errorf("validate scenario %s: %w", entry.Name(), err)
+			}
+			bundles[bundle.Metadata.ID] = bundle
+		}
+	}
+
+	if len(bundles) == 0 {
+		return nil, fmt.Errorf("no valid scenarios found in %s", baseDir)
+	}
+
+	return bundles, nil
+}
+

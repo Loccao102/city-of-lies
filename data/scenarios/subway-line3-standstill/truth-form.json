@@ -1,0 +1,79 @@
+{
+  "event_type": {
+    "type": "enum",
+    "label": "Bản chất sự cố đường sắt",
+    "answer": "signal_failure",
+    "options": [
+      {
+        "value": "signal_failure",
+        "label": "Sự cố chập tín hiệu kích hoạt dừng tàu an toàn"
+      },
+      {
+        "value": "terrorist_attack",
+        "label": "Tấn công khủng bố bom khí độc"
+      },
+      {
+        "value": "tunnel_collapse",
+        "label": "Sập sụt lún kết cấu hầm ngầm"
+      },
+      {
+        "value": "unknown",
+        "label": "Chưa xác định"
+      }
+    ]
+  },
+  "cause_category": {
+    "type": "enum",
+    "label": "Nguyên nhân trực tiếp",
+    "answer": "short_circuit_cable",
+    "options": [
+      {
+        "value": "short_circuit_cable",
+        "label": "Đoản mạch cáp tín hiệu hộp 14 do ẩm mốc"
+      },
+      {
+        "value": "chemical_gas_device",
+        "label": "Kích nổ thiết bị hơi ngạt độc hại"
+      },
+      {
+        "value": "train_collision",
+        "label": "Va chạm với phương tiện khác"
+      },
+      {
+        "value": "unknown",
+        "label": "Không rõ"
+      }
+    ]
+  },
+  "major_explosion": {
+    "type": "boolean",
+    "label": "Có vụ nổ phá hủy toa tàu hay sập hầm ngầm không?",
+    "answer": false
+  },
+  "fatalities": {
+    "type": "integer",
+    "label": "Số người tử vong thực tế",
+    "answer": 0,
+    "min": 0,
+    "max": 200
+  },
+  "management_issue": {
+    "type": "enum",
+    "label": "Trách nhiệm quản lý vận hành",
+    "answer": "waterproofing_maintenance_delay",
+    "options": [
+      {
+        "value": "waterproofing_maintenance_delay",
+        "label": "Chậm xử lý chống thấm nước rò rỉ vào hộp cáp kỹ thuật"
+      },
+      {
+        "value": "security_negligence",
+        "label": "Bỏ lọt phần tử khủng bố mang chất cấm lên tàu"
+      },
+      {
+        "value": "none",
+        "label": "Không có sai phạm"
+      }
+    ]
+  }
+}

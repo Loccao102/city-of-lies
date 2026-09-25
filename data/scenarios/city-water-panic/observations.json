@@ -1,0 +1,68 @@
+[
+  {
+    "agent_id": "w_chief_eng_thanh",
+    "claim_id": "claim_water_discoloration_occurred",
+    "confidence": 0.99,
+    "basis": "direct_observation"
+  },
+  {
+    "agent_id": "w_chief_eng_thanh",
+    "claim_id": "claim_mineral_sediment_origin",
+    "confidence": 0.95,
+    "basis": "pressure_sensor_logs"
+  },
+  {
+    "agent_id": "w_chemist_quynh",
+    "claim_id": "claim_toxicity_negative",
+    "confidence": 0.99,
+    "basis": "spectrometry_assay"
+  },
+  {
+    "agent_id": "w_chemist_quynh",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.9,
+    "basis": "toxicology_report"
+  },
+  {
+    "agent_id": "w_doctor_mai",
+    "claim_id": "claim_zero_fatalities",
+    "confidence": 0.98,
+    "basis": "clinical_examination_log"
+  },
+  {
+    "agent_id": "w_env_inspector_tram",
+    "claim_id": "claim_toxicity_negative",
+    "confidence": 0.95,
+    "basis": "independent_sample_test"
+  },
+  {
+    "agent_id": "w_operator_duc",
+    "claim_id": "claim_mineral_sediment_origin",
+    "confidence": 0.92,
+    "basis": "valve_inspection"
+  },
+  {
+    "agent_id": "w_plumber_vinh",
+    "claim_id": "claim_water_flushed_clear",
+    "confidence": 0.9,
+    "basis": "tap_water_flushing"
+  },
+  {
+    "agent_id": "w_blogger_trieu",
+    "claim_id": "claim_cyanide_poisoning",
+    "confidence": 0.4,
+    "basis": "speculation"
+  },
+  {
+    "agent_id": "w_teahouse_owner_hoa",
+    "claim_id": "claim_cyanide_poisoning",
+    "confidence": 0.35,
+    "basis": "hearsay"
+  },
+  {
+    "agent_id": "w_mother_lan",
+    "claim_id": "claim_cyanide_poisoning",
+    "confidence": 0.3,
+    "basis": "hearsay"
+  }
+]

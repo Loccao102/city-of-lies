@@ -1,0 +1,169 @@
+[
+  {
+    "id": "station_concourse",
+    "name": "Sảnh Ga Trung Tâm",
+    "description": "Nơi hành khách và thân nhân chen chúc chờ thông tin.",
+    "position": {
+      "x": -24,
+      "y": 0,
+      "z": -16
+    },
+    "connected_locations": [
+      "ticket_gates",
+      "platform_1",
+      "security_post"
+    ]
+  },
+  {
+    "id": "ticket_gates",
+    "name": "Cổng Soát Vé Ga",
+    "description": "Cổng an ninh đã mở tự do để sơ tán đám đông.",
+    "position": {
+      "x": -32,
+      "y": 0,
+      "z": -24
+    },
+    "connected_locations": [
+      "station_concourse",
+      "street_entrance"
+    ]
+  },
+  {
+    "id": "platform_1",
+    "name": "Sân Ga Ngầm Số 1",
+    "description": "Sân ga dẫn vào hầm tối nơi đoàn tàu đang dừng lại.",
+    "position": {
+      "x": -20,
+      "y": 0,
+      "z": -26
+    },
+    "connected_locations": [
+      "station_concourse",
+      "train_tunnel_section",
+      "emergency_exit"
+    ]
+  },
+  {
+    "id": "train_tunnel_section",
+    "name": "Đoạn Hầm Tàu Dừng (Khoang E304)",
+    "description": "Hiện trường đoàn tàu dừng bánh, đèn chiếu sáng khẩn cấp đang bật.",
+    "position": {
+      "x": -28,
+      "y": 0,
+      "z": -8
+    },
+    "connected_locations": [
+      "platform_1",
+      "track_signal_box"
+    ]
+  },
+  {
+    "id": "track_signal_box",
+    "name": "Tủ Tín Hiệu Đường Ray Hầm",
+    "description": "Vị trí hộp cáp tín hiệu điều khiển cảm biến an toàn bị chập cháy.",
+    "position": {
+      "x": -14,
+      "y": 0,
+      "z": -18
+    },
+    "connected_locations": [
+      "train_tunnel_section"
+    ]
+  },
+  {
+    "id": "station_control_room",
+    "name": "Trung Tâm Điều Hành Ga (OCC)",
+    "description": "Màn hình giám sát tín hiệu toàn tuyến đường sắt đô thị.",
+    "position": {
+      "x": 2,
+      "y": 0,
+      "z": 6
+    },
+    "connected_locations": [
+      "station_concourse",
+      "ventilation_plant"
+    ]
+  },
+  {
+    "id": "ventilation_plant",
+    "name": "Trạm Quạt Gió Khẩn Cấp",
+    "description": "Hệ thống quạt hút áp lực đẩy không khí tươi vào đường hầm.",
+    "position": {
+      "x": 26,
+      "y": 0,
+      "z": -20
+    },
+    "connected_locations": [
+      "station_control_room"
+    ]
+  },
+  {
+    "id": "emergency_exit",
+    "name": "Lối Thoát Hiểm Số 4",
+    "description": "Cầu thang thoát hiểm phụ dẫn hành khách lên mặt đất.",
+    "position": {
+      "x": -6,
+      "y": 0,
+      "z": -6
+    },
+    "connected_locations": [
+      "platform_1",
+      "street_entrance"
+    ]
+  },
+  {
+    "id": "street_entrance",
+    "name": "Cửa Ga Mặt Đường",
+    "description": "Nơi tập trung xe cứu hỏa, cứu thương và cảnh sát phong tỏa.",
+    "position": {
+      "x": 10,
+      "y": 0,
+      "z": -4
+    },
+    "connected_locations": [
+      "ticket_gates",
+      "emergency_exit",
+      "subway_kiosk"
+    ]
+  },
+  {
+    "id": "subway_kiosk",
+    "name": "Quầy Báo Cửa Ga",
+    "description": "Nơi người dân tụ tập nghe ngóng và bàn tán tin sốt dẻo.",
+    "position": {
+      "x": 18,
+      "y": 0,
+      "z": 12
+    },
+    "connected_locations": [
+      "street_entrance",
+      "field_triage_tent"
+    ]
+  },
+  {
+    "id": "field_triage_tent",
+    "name": "Lều Sơ Cứu Dã Chiến",
+    "description": "Nhân viên y tế 115 tiếp nhận sơ cứu hành khách bị hoảng loạn.",
+    "position": {
+      "x": -22,
+      "y": 0,
+      "z": 14
+    },
+    "connected_locations": [
+      "street_entrance"
+    ]
+  },
+  {
+    "id": "security_post",
+    "name": "Chốt Cảnh Sát Ga Ngầm",
+    "description": "Lực lượng cảnh sát bảo vệ an ninh trật tự công cộng ga.",
+    "position": {
+      "x": -10,
+      "y": 0,
+      "z": 18
+    },
+    "connected_locations": [
+      "station_concourse"
+    ]
+  }
+]

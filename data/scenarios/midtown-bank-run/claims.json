@@ -1,0 +1,72 @@
+[
+  {
+    "id": "claim_tech_outage_occurred",
+    "text": "Hệ thống kết nối Core Banking bị gián đoạn kỹ thuật tạm thời",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_database_deadlock_cause",
+    "text": "Sự cố bắt nguồn từ xung đột deadlock trong tiến trình nâng cấp bản vá định kỳ",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_liquidity_sufficient",
+    "text": "Hầm tiền vẫn đầy đủ dự trữ thanh khoản, không mất mát tiền gửi",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_ceo_present",
+    "text": "Tổng giám đốc đang có mặt tại phòng họp tầng 3 điều hành khắc phục",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_zero_fatalities",
+    "text": "Không có ai tử vong hay bạo lực xảy ra",
+    "classification": "true",
+    "role": "fact",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_bank_insolvency",
+    "text": "Ngân hàng Midtown mất khả năng thanh khoản và sắp công bố phá sản",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.35
+  },
+  {
+    "id": "claim_ceo_fled_with_gold",
+    "text": "Tổng giám đốc đã bí mật vận chuyển toàn bộ vàng dự trữ và bay sang nước ngoài",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.4
+  },
+  {
+    "id": "claim_account_freeze_order",
+    "text": "Tất cả tài khoản tiết kiệm của người dân sẽ bị đóng băng vĩnh viễn từ 17:00",
+    "classification": "false",
+    "role": "primary_false",
+    "weight": 0.25
+  },
+  {
+    "id": "claim_secret_police_raid",
+    "text": "Cảnh sát kinh tế đã bao vây bắt giữ toàn bộ ban quản trị",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  },
+  {
+    "id": "claim_atm_cash_empty_forever",
+    "text": "ATM sẽ không bao giờ nhả tiền nữa vì máy chủ đã bị xóa sạch dữ liệu",
+    "classification": "false",
+    "role": "secondary_false",
+    "weight": 0.0
+  }
+]

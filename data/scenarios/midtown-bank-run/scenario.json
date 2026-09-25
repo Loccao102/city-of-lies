@@ -1,0 +1,34 @@
+{
+  "id": "midtown-bank-run",
+  "title": "Cơn Hoảng Loạn Ngân Hàng Midtown",
+  "version": 1,
+  "description": "Lúc 14:15, hệ thống máy chủ cơ sở dữ liệu Core Banking Midtown gặp lỗi deadlock kết nối đường truyền, khiến hệ thống ATM và Mobile Banking bị gián đoạn 45 phút. Không mất mát tài sản. Tin đồn thất thiệt lan truyền rằng ngân hàng vỡ nợ, giám đốc đã ôm vàng bỏ trốn và chuẩn bị phong tỏa tài khoản người dân.",
+  "primary_false_narrative": {
+    "adoption_threshold": 0.65,
+    "defeat_ratio": 0.75,
+    "claims": [
+      {
+        "claim_id": "claim_bank_insolvency",
+        "weight": 0.35
+      },
+      {
+        "claim_id": "claim_ceo_fled_with_gold",
+        "weight": 0.4
+      },
+      {
+        "claim_id": "claim_account_freeze_order",
+        "weight": 0.25
+      }
+    ]
+  },
+  "required_truth_fields": [
+    "event_type",
+    "cause_category",
+    "major_explosion",
+    "fatalities"
+  ],
+  "bonus_truth_fields": [
+    "system_status",
+    "management_issue"
+  ]
+}

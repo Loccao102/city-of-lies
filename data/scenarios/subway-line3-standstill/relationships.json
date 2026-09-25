@@ -1,0 +1,86 @@
+[
+  {
+    "from_agent_id": "s_driver_hai",
+    "to_agent_id": "s_dispatcher_trang",
+    "trust": 0.9,
+    "reason": "Phối hợp điều hành lái tàu chuẩn mực"
+  },
+  {
+    "from_agent_id": "s_dispatcher_trang",
+    "to_agent_id": "s_tech_quoc",
+    "trust": 0.88,
+    "reason": "Xác nhận sự cố kỹ thuật tín hiệu"
+  },
+  {
+    "from_agent_id": "s_fire_commander_kien",
+    "to_agent_id": "s_dispatcher_trang",
+    "trust": 0.92,
+    "reason": "Chỉ huy cứu hộ liên ngành"
+  },
+  {
+    "from_agent_id": "s_station_master_vinh",
+    "to_agent_id": "s_police_son",
+    "trust": 0.85,
+    "reason": "Phối hợp an ninh nhà ga"
+  },
+  {
+    "from_agent_id": "s_doctor_huyen",
+    "to_agent_id": "s_fire_commander_kien",
+    "trust": 0.88,
+    "reason": "Bàn giao người cần sơ cứu"
+  },
+  {
+    "from_agent_id": "s_passenger_nga",
+    "to_agent_id": "s_doctor_huyen",
+    "trust": 0.85,
+    "reason": "Được bác sĩ chăm sóc trấn an"
+  },
+  {
+    "from_agent_id": "s_kiosk_vendor_ba",
+    "to_agent_id": "s_livestreamer_long",
+    "trust": 0.75,
+    "reason": "Kể chuyện giật gân cho streamer"
+  },
+  {
+    "from_agent_id": "s_livestreamer_long",
+    "to_agent_id": "s_taxi_driver_thanh",
+    "trust": 0.7,
+    "reason": "Bàn tán tin đồn giật gân"
+  },
+  {
+    "from_agent_id": "s_mother_huong",
+    "to_agent_id": "s_kiosk_vendor_ba",
+    "trust": 0.75,
+    "reason": "Hỏi thăm tình hình con gái"
+  },
+  {
+    "from_agent_id": "s_journalist_quang",
+    "to_agent_id": "s_fire_commander_kien",
+    "trust": 0.9,
+    "reason": "Lấy thông tin từ chỉ huy cứu hộ"
+  },
+  {
+    "from_agent_id": "s_rescue_worker_dung",
+    "to_agent_id": "s_driver_hai",
+    "trust": 0.88,
+    "reason": "Kiểm tra an toàn đoàn tàu"
+  },
+  {
+    "from_agent_id": "s_vent_engineer_an",
+    "to_agent_id": "s_dispatcher_trang",
+    "trust": 0.85,
+    "reason": "Báo cáo chỉ số không khí quạt gió"
+  },
+  {
+    "from_agent_id": "s_passenger_tuan",
+    "to_agent_id": "s_journalist_quang",
+    "trust": 0.82,
+    "reason": "Kể lại trải nghiệm thoát hiểm thực tế"
+  },
+  {
+    "from_agent_id": "s_metro_director_binh",
+    "to_agent_id": "s_station_master_vinh",
+    "trust": 0.85,
+    "reason": "Chỉ đạo điều hành nhà ga"
+  }
+]

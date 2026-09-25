@@ -1,0 +1,228 @@
+[
+  {
+    "game_second": 120,
+    "event_type": "ambulance_surge",
+    "headline": "Xe cấp cứu đưa 6 bác sĩ nhập viện liên tục",
+    "description": "Nhiều y bác sĩ ca trực trưa có biểu hiện đau quặn bụng và dị ứng da cấp.",
+    "location_id": "er_entrance",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 300,
+    "event_type": "gate_restricted",
+    "headline": "Bệnh viện dựng rào chắn phân luồng",
+    "description": "Lực lượng bảo vệ và công an tạm ngừng tiếp nhận khám ngoại trú để tập trung cấp cứu.",
+    "location_id": "hospital_lobby",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 420,
+    "event_type": "rumor_seed",
+    "headline": "Bảo vệ Dũng bàn tán về biểu hiện bệnh nhân",
+    "description": "Dũng nói với tài xế Long rằng nghe thấy bên trong có tiếng la hét co giật.",
+    "location_id": "er_entrance",
+    "belief_seeds": [
+      {
+        "agent_id": "h_guard_dung",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.45,
+        "reasoning": "Thấy bác sĩ hớt hải chuẩn bị phòng cách ly."
+      },
+      {
+        "agent_id": "h_driver_long",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.4,
+        "reasoning": "Nghe bảo vệ Dũng kể về ca bệnh lạ."
+      }
+    ]
+  },
+  {
+    "game_second": 480,
+    "event_type": "rumor_transmission",
+    "headline": "Quán nước cô Mai râm ran tin lạ",
+    "description": "Cô Mai kể cho người nhà bệnh nhân về việc bệnh viện đang đóng cổng.",
+    "location_id": "street_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "h_vendor_mai",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.5,
+        "reasoning": "Khách vào quán uống nước bảo thấy người mặc đồ phòng hộ kín mít."
+      },
+      {
+        "agent_id": "h_relative_quang",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.45,
+        "reasoning": "Nghe người dân ngoài cổng đồn về virus độc."
+      }
+    ]
+  },
+  {
+    "game_second": 720,
+    "event_type": "blog_post",
+    "headline": "Blogger Khoa đăng tin nghi vấn virus rò rỉ",
+    "description": "Bài viết: Nghi vấn sự cố rò rỉ mầm bệnh tại khu nghiên cứu bệnh viện Metro.",
+    "location_id": "street_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "h_blogger_khoa",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.6,
+        "reasoning": "Nhận được nhiều tin nhắn nặc danh nói viện đang giấu dịch."
+      }
+    ]
+  },
+  {
+    "game_second": 840,
+    "event_type": "headline_update",
+    "headline": "Khoa đổi tiêu đề: Thảm họa virus thoát ra ngoài?",
+    "description": "Bài đăng nhận hàng nghìn lượt tương tác và chia sẻ hoang mang.",
+    "location_id": "street_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "h_blogger_khoa",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.72,
+        "reasoning": "Cập nhật tin đồn từ nguồn tin giấu tên."
+      },
+      {
+        "agent_id": "h_reporter_nga",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.68,
+        "reasoning": "Thấy bài đăng của Khoa lan truyền quá nhanh."
+      }
+    ]
+  },
+  {
+    "game_second": 900,
+    "event_type": "social_viral",
+    "headline": "Người dân chia sẻ bài viết cảnh báo dịch bệnh",
+    "description": "Thông tin thất thiệt lan truyền vào các nhóm cộng đồng cư dân.",
+    "location_id": "hospital_lobby",
+    "belief_seeds": [
+      {
+        "agent_id": "h_reporter_nga",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.8,
+        "reasoning": "Thấy nhiều người thân gọi điện hỏi thăm tình hình."
+      },
+      {
+        "agent_id": "h_relative_quang",
+        "claim_id": "claim_lab_virus_leak",
+        "confidence": 0.7,
+        "reasoning": "Đọc tin trên mạng xã hội thấy trùng khớp với cảnh tượng hỗn loạn."
+      }
+    ]
+  },
+  {
+    "game_second": 1080,
+    "event_type": "official_statement",
+    "headline": "Giám đốc Khánh né tránh trả lời số lượng bệnh nhân",
+    "description": "Lãnh đạo bệnh viện phát biểu ngắn gọn rồi rời đi khiến dư luận nghi ngờ bưng bít thông tin.",
+    "location_id": "admin_office",
+    "belief_seeds": [
+      {
+        "agent_id": "h_blogger_khoa",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.65,
+        "reasoning": "Giám đốc né tránh câu hỏi về dịch bệnh."
+      },
+      {
+        "agent_id": "h_reporter_nga",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.7,
+        "reasoning": "Bệnh viện từ chối cung cấp danh sách bệnh nhân."
+      },
+      {
+        "agent_id": "h_relative_quang",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.6,
+        "reasoning": "Không cho thân nhân vào phòng hồi sức thăm."
+      },
+      {
+        "agent_id": "h_vendor_mai",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.55,
+        "reasoning": "Nghe phóng viên nói viện đang giấu tin."
+      },
+      {
+        "agent_id": "h_driver_long",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.5,
+        "reasoning": "Thấy bảo vệ đóng cổng ngăn báo chí."
+      },
+      {
+        "agent_id": "h_guard_dung",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.5,
+        "reasoning": "Cấp trên chỉ thị không trả lời người ngoài."
+      },
+      {
+        "agent_id": "h_cleaner_bich",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.5,
+        "reasoning": "Bếp ăn bị niêm phong không ai giải thích."
+      },
+      {
+        "agent_id": "h_officer_nam",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.5,
+        "reasoning": "Bệnh viện chưa phát đi thông cáo chính thức."
+      },
+      {
+        "agent_id": "h_nurse_hoa",
+        "claim_id": "claim_cdc_quarantine_coverup",
+        "confidence": 0.48,
+        "reasoning": "Thấy lãnh đạo họp khẩn căng thẳng."
+      }
+    ]
+  },
+  {
+    "game_second": 1200,
+    "event_type": "livestream_claim",
+    "headline": "Blogger Khoa livestream khẳng định có người tử vong",
+    "description": "Khoa phát sóng trực tiếp nói đã thấy xe chuyển bệnh nhân nguy kịch đi.",
+    "location_id": "street_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "h_blogger_khoa",
+        "claim_id": "claim_patient_fatalities",
+        "confidence": 0.75,
+        "reasoning": "Nói trong livestream có người tử vong vì co giật."
+      },
+      {
+        "agent_id": "h_relative_quang",
+        "claim_id": "claim_patient_fatalities",
+        "confidence": 0.68,
+        "reasoning": "Nghe livestream hốt hoảng khóc lóc."
+      },
+      {
+        "agent_id": "h_vendor_mai",
+        "claim_id": "claim_patient_fatalities",
+        "confidence": 0.55,
+        "reasoning": "Khách xem livestream bàn tán có người chết."
+      }
+    ]
+  },
+  {
+    "game_second": 1320,
+    "event_type": "headline_fatalities",
+    "headline": "Khoa giật tít: Xác nhận các ca tử vong đầu tiên",
+    "description": "Bài viết giật gân đạt đỉnh điểm tương tác.",
+    "location_id": "street_cafe",
+    "belief_seeds": [
+      {
+        "agent_id": "h_blogger_khoa",
+        "claim_id": "claim_patient_fatalities",
+        "confidence": 0.82,
+        "reasoning": "Cập nhật tiêu đề bài viết khẳng định có người chết."
+      },
+      {
+        "agent_id": "h_reporter_nga",
+        "claim_id": "claim_patient_fatalities",
+        "confidence": 0.78,
+        "reasoning": "Áp lực cạnh tranh tin tức khiến chuẩn bị đăng bài theo."
+      }
+    ]
+  }
+]

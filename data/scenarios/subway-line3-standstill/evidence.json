@@ -1,0 +1,66 @@
+[
+  {
+    "id": "ev_occ_telemetry_log",
+    "name": "Nhật ký vận hành tự động OCC Metro",
+    "description": "Dữ liệu hộp đen điều độ: 'ATP triggered safe emergency stop on train E304 at 18:30:12 due to signal loss. Power grid isolated, tunnel airflow normal at 52 m3/s'.",
+    "location_id": "station_control_room",
+    "reliability": 0.99,
+    "source_category": "technical_telemetry",
+    "supports": [
+      "claim_train_stopped_safely",
+      "claim_ventilation_working"
+    ],
+    "contradicts": [
+      "claim_terrorist_gas_attack",
+      "claim_hundreds_suffocated"
+    ],
+    "unlock_condition": "Xem dữ liệu màn hình điều hành sau khi trao đổi với Điều độ viên Trang."
+  },
+  {
+    "id": "ev_signal_box_debris",
+    "name": "Mẫu cáp tín hiệu đường ray bị đoản mạch",
+    "description": "Biên bản giám định kỹ thuật: Đoạn cáp tín hiệu hộp 14 bị chập cháy lớp vỏ PVC cách điện do rò rỉ nước ngầm tích tụ, không phát hiện dấu vết chất nổ hay tác động phá hoại.",
+    "location_id": "track_signal_box",
+    "reliability": 0.98,
+    "source_category": "engineering_inspection",
+    "supports": [
+      "claim_signal_cable_short"
+    ],
+    "contradicts": [
+      "claim_terrorist_gas_attack"
+    ],
+    "unlock_condition": "Khám nghiệm hộp tín hiệu sau khi phỏng vấn Kỹ sư Quốc."
+  },
+  {
+    "id": "ev_fire_rescue_headcount",
+    "name": "Biên bản hoàn thành cứu nạn cứu hộ",
+    "description": "Biên bản chính thức của Cảnh sát PCCC & CNCH: Đã sơ tán toàn bộ 120 hành khách ra ngoài an toàn qua cửa thoát hiểm số 4; 0 người chết, 4 ca sơ cứu tâm lý tại chỗ.",
+    "location_id": "street_entrance",
+    "reliability": 0.99,
+    "source_category": "official_headcount",
+    "supports": [
+      "claim_all_evacuated_zero_deaths",
+      "claim_no_structural_collapse"
+    ],
+    "contradicts": [
+      "claim_hundreds_suffocated",
+      "claim_tunnel_collapse_denial"
+    ],
+    "unlock_condition": "Kiểm tra tại xe chỉ huy cứu hộ sau khi trao đổi với Trung tá Kiên."
+  },
+  {
+    "id": "ev_tunnel_structural_scan",
+    "name": "Bản quét siêu âm kết cấu hầm ngầm",
+    "description": "Báo cáo kiểm tra trắc địa laser: Toàn bộ vỏ vòm bê tông đường hầm từ km 4+200 đến km 5+100 hoàn toàn nguyên vẹn, không có biến dạng hay sụt lún.",
+    "location_id": "train_tunnel_section",
+    "reliability": 0.97,
+    "source_category": "structural_survey",
+    "supports": [
+      "claim_no_structural_collapse"
+    ],
+    "contradicts": [
+      "claim_tunnel_collapse_denial"
+    ],
+    "unlock_condition": "Tìm thấy trong sổ tay kỹ thuật sau khi nói chuyện với Hành khách Tuấn hoặc Lái tàu Hải."
+  }
+]

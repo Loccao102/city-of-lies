@@ -15,6 +15,7 @@ type RouterParams struct {
 	Logger        *slog.Logger
 	HealthHandler *handlers.HealthHandler
 	Sessions      *handlers.SessionsHandler
+	Scenarios     *handlers.ScenariosHandler
 	Agents        *handlers.AgentsHandler
 	Investigation *handlers.InvestigationHandler
 	WSHandler     *handlers.WSHandler
@@ -39,6 +40,10 @@ func NewRouter(p RouterParams) *chi.Mux {
 
 	// REST API v1 Routes
 	r.Route("/api/v1", func(r chi.Router) {
+		if p.Scenarios != nil {
+			r.Get("/scenarios", p.Scenarios.ListScenarios)
+		}
+
 		r.Route("/sessions", func(r chi.Router) {
 			r.Post("/", p.Sessions.CreateSession)
 			r.Get("/{id}", p.Sessions.GetSession)

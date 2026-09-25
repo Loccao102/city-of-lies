@@ -1,0 +1,228 @@
+[
+  {
+    "game_second": 120,
+    "event_type": "water_discolored",
+    "headline": "Cư dân phát hiện nước máy chảy ra màu nâu đỏ",
+    "description": "Nhiều hộ gia đình mở vòi nước sinh hoạt buổi sáng thấy nước đục ngầu.",
+    "location_id": "residential_quarter",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 300,
+    "event_type": "water_panic_buy",
+    "headline": "Cơn sốt vét sạch nước đóng chai tại siêu thị",
+    "description": "Hàng trăm người xếp hàng dài tranh nhau mua nước khoáng đóng bình.",
+    "location_id": "supermarket",
+    "belief_seeds": []
+  },
+  {
+    "game_second": 420,
+    "event_type": "rumor_seed",
+    "headline": "Quán trà bà Hoa râm ran tin nước đổi màu đen tím",
+    "description": "Bà Hoa nói với bác Nam rằng nước máy pha trà chuyển màu đen kỳ dị nghi có độc.",
+    "location_id": "riverside_teahouse",
+    "belief_seeds": [
+      {
+        "agent_id": "w_teahouse_owner_hoa",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.45,
+        "reasoning": "Nước máy pha trà chuyển sang màu tím đen bất thường."
+      },
+      {
+        "agent_id": "w_citizen_bac_nam",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.4,
+        "reasoning": "Hứng nước thấy cặn đỏ quạch như gạch cua bốc mùi tanh."
+      }
+    ]
+  },
+  {
+    "game_second": 480,
+    "event_type": "rumor_transmission",
+    "headline": "Cư dân bàn tán nghi vấn ô nhiễm hóa chất",
+    "description": "Người dân dặn nhau tuyệt đối không dùng nước máy nấu ăn.",
+    "location_id": "residential_quarter",
+    "belief_seeds": [
+      {
+        "agent_id": "w_citizen_bac_nam",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.5,
+        "reasoning": "Cả khu chung cư nhốn nháo khóa van nước tổng."
+      },
+      {
+        "agent_id": "w_mother_lan",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.45,
+        "reasoning": "Sợ con uống phải nước độc bị co giật."
+      }
+    ]
+  },
+  {
+    "game_second": 720,
+    "event_type": "blog_post",
+    "headline": "Blogger Triệu đăng ảnh xô nước đỏ cảnh báo độc chất",
+    "description": "Bài viết: Nghi vấn đầu độc nguồn nước sinh hoạt phía Tây.",
+    "location_id": "riverside_teahouse",
+    "belief_seeds": [
+      {
+        "agent_id": "w_blogger_trieu",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.6,
+        "reasoning": "Nhận được hàng trăm tin nhắn ảnh nước đỏ từ người dân."
+      }
+    ]
+  },
+  {
+    "game_second": 840,
+    "event_type": "headline_update",
+    "headline": "Triệu đổi tiêu đề: 'Thảm họa xyanua tràn vào vòi nước'",
+    "description": "Bài đăng cảnh báo chất kịch độc xyanua đạt hàng chục nghìn lượt chia sẻ hoảng loạn.",
+    "location_id": "riverside_teahouse",
+    "belief_seeds": [
+      {
+        "agent_id": "w_blogger_trieu",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.72,
+        "reasoning": "Có tin đồn công ty xả hóa chất xyanua chưa qua xử lý."
+      },
+      {
+        "agent_id": "w_mother_lan",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.68,
+        "reasoning": "Đọc tin thấy trùng khớp với triệu chứng nước đổi màu đen."
+      }
+    ]
+  },
+  {
+    "game_second": 900,
+    "event_type": "social_viral",
+    "headline": "Làn sóng gom nước sạch gây náo loạn siêu thị",
+    "description": "Cư dân chia sẻ tin đồn khiến các cửa hàng cạn kiệt nước tinh khiết.",
+    "location_id": "supermarket",
+    "belief_seeds": [
+      {
+        "agent_id": "w_mother_lan",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.8,
+        "reasoning": "Tranh cướp bình nước đóng chai ở siêu thị với cư dân khác."
+      },
+      {
+        "agent_id": "w_journalist_phuong",
+        "claim_id": "claim_cyanide_poisoning",
+        "confidence": 0.75,
+        "reasoning": "Thông tin đầu độc nguồn nước lan tràn trên tất cả các mạng."
+      }
+    ]
+  },
+  {
+    "game_second": 1080,
+    "event_type": "official_statement",
+    "headline": "Ban giám đốc nhà máy nước từ chối công bố nguyên nhân",
+    "description": "Lãnh đạo chậm trễ họp báo giải thích hiện tượng nước đục khiến dư luận phẫn nộ.",
+    "location_id": "plant_admin",
+    "belief_seeds": [
+      {
+        "agent_id": "w_blogger_trieu",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.65,
+        "reasoning": "Nhà máy đóng cổng không cho phóng viên tiếp cận bể lọc."
+      },
+      {
+        "agent_id": "w_teahouse_owner_hoa",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.65,
+        "reasoning": "Bà con kéo đến cổng nhà máy đòi câu trả lời thỏa đáng."
+      },
+      {
+        "agent_id": "w_citizen_bac_nam",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.6,
+        "reasoning": "Tổ dân phố kiến nghị công ty giải trình nhưng bị từ chối."
+      },
+      {
+        "agent_id": "w_mother_lan",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.6,
+        "reasoning": "Nghi ngờ công ty bưng bít sự cố hóa chất."
+      },
+      {
+        "agent_id": "w_supermarket_mgr",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.55,
+        "reasoning": "Khách hàng kháo nhau nước máy sẽ bị ngắt dài hạn."
+      },
+      {
+        "agent_id": "w_journalist_phuong",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.7,
+        "reasoning": "Sở Tài nguyên Môi trường chưa nhận được báo cáo từ nhà máy."
+      },
+      {
+        "agent_id": "w_guard_tuan",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.5,
+        "reasoning": "Lãnh đạo chỉ đạo khóa cổng bảo vệ."
+      },
+      {
+        "agent_id": "w_store_clerk_thuy",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.48,
+        "reasoning": "Nghe khách kể công ty giấu tin xyanua."
+      },
+      {
+        "agent_id": "w_plumber_vinh",
+        "claim_id": "claim_water_plant_coverup",
+        "confidence": 0.45,
+        "reasoning": "Thợ sửa ống không được cấp phụ tùng thay thế."
+      }
+    ]
+  },
+  {
+    "game_second": 1200,
+    "event_type": "livestream_claim",
+    "headline": "Blogger Triệu livestream báo động nhiều người co giật tử vong",
+    "description": "Triệu khẳng định đã có ca cấp cứu ngộ độc xyanua tử vong tại nhà.",
+    "location_id": "riverside_teahouse",
+    "belief_seeds": [
+      {
+        "agent_id": "w_blogger_trieu",
+        "claim_id": "claim_mass_poisoning_deaths",
+        "confidence": 0.75,
+        "reasoning": "Khẳng định có gia đình uống nước buổi sáng đã bị co giật tử vong."
+      },
+      {
+        "agent_id": "w_teahouse_owner_hoa",
+        "claim_id": "claim_mass_poisoning_deaths",
+        "confidence": 0.68,
+        "reasoning": "Khách uống trà bàn tán có người đưa đi cấp cứu không qua khỏi."
+      },
+      {
+        "agent_id": "w_mother_lan",
+        "claim_id": "claim_mass_poisoning_deaths",
+        "confidence": 0.55,
+        "reasoning": "Hốt hoảng ôm con khóc vì sợ trúng độc."
+      }
+    ]
+  },
+  {
+    "game_second": 1320,
+    "event_type": "headline_fatalities",
+    "headline": "Các trang mạng giật tít: 'Khủng hoảng đầu độc nước sạch cướp đi sinh mạng'",
+    "description": "Tin giả đạt đỉnh điểm tác động tiêu cực tới toàn bộ người dân thành phố.",
+    "location_id": "riverside_teahouse",
+    "belief_seeds": [
+      {
+        "agent_id": "w_blogger_trieu",
+        "claim_id": "claim_mass_poisoning_deaths",
+        "confidence": 0.82,
+        "reasoning": "Cập nhật bài viết xác nhận nhiều ca tử vong do độc tố."
+      },
+      {
+        "agent_id": "w_journalist_phuong",
+        "claim_id": "claim_mass_poisoning_deaths",
+        "confidence": 0.78,
+        "reasoning": "Áp lực thông tin khiến chuẩn bị đăng bài phản ánh phản ứng dư luận."
+      }
+    ]
+  }
+]

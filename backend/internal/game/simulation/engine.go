@@ -93,12 +93,17 @@ func NewSimulationEngine(bundle *scenario.ScenarioBundle, seed int64, cfg *confi
 		eng.Memories[agent.ID] = make([]domain.AgentMemory, 0)
 	}
 
-	// 2. Seed Claims
+	// 2. Seed Claims & configure scheduler claim emotional weights
+	claimRoles := make(map[string]string)
+	claimWeights := make(map[string]float64)
 	for _, c := range bundle.Claims {
 		c.SessionID = sessionID
 		c.ID = domain.NewUUID()
 		eng.Claims[c.ScenarioClaimID] = c
+		claimRoles[c.ScenarioClaimID] = string(c.NarrativeRole)
+		claimWeights[c.ScenarioClaimID] = c.NarrativeWeight
 	}
+	sched.SetClaimMetadata(claimRoles, claimWeights)
 
 	// 3. Seed Observations / Memories / Initial Beliefs
 	for _, obs := range bundle.Observations {

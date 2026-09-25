@@ -1,0 +1,116 @@
+[
+  {
+    "from_agent_id": "h_dr_nghiem",
+    "to_agent_id": "h_nurse_hoa",
+    "trust": 0.85,
+    "reason": "Cộng sự cấp cứu lâu năm"
+  },
+  {
+    "from_agent_id": "h_nurse_hoa",
+    "to_agent_id": "h_dr_nghiem",
+    "trust": 0.9,
+    "reason": "Tin tưởng chuyên môn cấp trên"
+  },
+  {
+    "from_agent_id": "h_dr_nghiem",
+    "to_agent_id": "h_director_khanh",
+    "trust": 0.8,
+    "reason": "Báo cáo trực tiếp ban giám đốc"
+  },
+  {
+    "from_agent_id": "h_director_khanh",
+    "to_agent_id": "h_dr_nghiem",
+    "trust": 0.85,
+    "reason": "Trưởng khoa tin cậy"
+  },
+  {
+    "from_agent_id": "h_chef_tam",
+    "to_agent_id": "h_cleaner_bich",
+    "trust": 0.6,
+    "reason": "Nhân viên cùng bộ phận nhà bếp"
+  },
+  {
+    "from_agent_id": "h_cleaner_bich",
+    "to_agent_id": "h_vendor_mai",
+    "trust": 0.78,
+    "reason": "Thường ra quán trà đá tâm sự"
+  },
+  {
+    "from_agent_id": "h_vendor_mai",
+    "to_agent_id": "h_blogger_khoa",
+    "trust": 0.7,
+    "reason": "Kể chuyện ly kỳ cho tiktoker"
+  },
+  {
+    "from_agent_id": "h_blogger_khoa",
+    "to_agent_id": "h_reporter_nga",
+    "trust": 0.65,
+    "reason": "Cùng săn tin độc quyền"
+  },
+  {
+    "from_agent_id": "h_reporter_nga",
+    "to_agent_id": "h_officer_nam",
+    "trust": 0.75,
+    "reason": "Nguồn tin cơ quan chức năng"
+  },
+  {
+    "from_agent_id": "h_officer_nam",
+    "to_agent_id": "h_guard_dung",
+    "trust": 0.7,
+    "reason": "Phối hợp giữ trật tự cổng viện"
+  },
+  {
+    "from_agent_id": "h_guard_dung",
+    "to_agent_id": "h_driver_long",
+    "trust": 0.8,
+    "reason": "Anh em lái xe và bảo vệ"
+  },
+  {
+    "from_agent_id": "h_tech_minh",
+    "to_agent_id": "h_inspector_hung",
+    "trust": 0.88,
+    "reason": "Đồng nghiệp khoa học kiểm nghiệm"
+  },
+  {
+    "from_agent_id": "h_inspector_hung",
+    "to_agent_id": "h_tech_minh",
+    "trust": 0.85,
+    "reason": "Tin cậy kết quả xét nghiệm vi sinh"
+  },
+  {
+    "from_agent_id": "h_relative_quang",
+    "to_agent_id": "h_vendor_mai",
+    "trust": 0.75,
+    "reason": "Hỏi thăm tình hình bên ngoài"
+  },
+  {
+    "from_agent_id": "h_pharmacist_yen",
+    "to_agent_id": "h_dr_nghiem",
+    "trust": 0.82,
+    "reason": "Xác nhận phác đồ điều trị"
+  },
+  {
+    "from_agent_id": "h_student_linh",
+    "to_agent_id": "h_patient_tri",
+    "trust": 0.8,
+    "reason": "Học việc từ bác sĩ nội trú"
+  },
+  {
+    "from_agent_id": "h_nurse_phuong",
+    "to_agent_id": "h_nurse_hoa",
+    "trust": 0.8,
+    "reason": "Đồng nghiệp điều dưỡng"
+  },
+  {
+    "from_agent_id": "h_mortuary_van",
+    "to_agent_id": "h_guard_dung",
+    "trust": 0.7,
+    "reason": "Chào hỏi ca trực hàng ngày"
+  },
+  {
+    "from_agent_id": "h_technician_son",
+    "to_agent_id": "h_chef_tam",
+    "trust": 0.65,
+    "reason": "Đã từng cảnh báo về tủ lạnh hỏng"
+  }
+]

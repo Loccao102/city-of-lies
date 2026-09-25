@@ -1,0 +1,79 @@
+{
+  "event_type": {
+    "type": "enum",
+    "label": "Bản chất sự cố y tế",
+    "answer": "food_poisoning",
+    "options": [
+      {
+        "value": "food_poisoning",
+        "label": "Ngộ độc thực phẩm tập thể"
+      },
+      {
+        "value": "viral_outbreak",
+        "label": "Bùng phát virus nguy hiểm"
+      },
+      {
+        "value": "chemical_poisoning",
+        "label": "Đầu độc hóa chất"
+      },
+      {
+        "value": "unknown",
+        "label": "Chưa xác định"
+      }
+    ]
+  },
+  "cause_category": {
+    "type": "enum",
+    "label": "Nguyên nhân gốc rễ",
+    "answer": "bacterial_toxin",
+    "options": [
+      {
+        "value": "bacterial_toxin",
+        "label": "Độc tố histamine do bảo quản cá ngừ sai quy chuẩn"
+      },
+      {
+        "value": "lab_leak",
+        "label": "Rò rỉ mầm bệnh từ phòng thí nghiệm vi sinh"
+      },
+      {
+        "value": "deliberate_sabotage",
+        "label": "Kẻ xấu cố ý phá hoại nguồn thức ăn"
+      },
+      {
+        "value": "unknown",
+        "label": "Không rõ"
+      }
+    ]
+  },
+  "major_explosion": {
+    "type": "boolean",
+    "label": "Có sự cố an toàn sinh học cấp độ cao / thảm họa lây nhiễm không?",
+    "answer": false
+  },
+  "fatalities": {
+    "type": "integer",
+    "label": "Số người tử vong thực tế",
+    "answer": 0,
+    "min": 0,
+    "max": 50
+  },
+  "management_issue": {
+    "type": "enum",
+    "label": "Trách nhiệm quản lý",
+    "answer": "broken_equipment_neglected",
+    "options": [
+      {
+        "value": "broken_equipment_neglected",
+        "label": "Không sửa chữa tủ đông bảo quản thực phẩm bị hỏng"
+      },
+      {
+        "value": "illegal_experiment",
+        "label": "Tiến hành thí nghiệm virus trái phép"
+      },
+      {
+        "value": "none",
+        "label": "Không có sai phạm"
+      }
+    ]
+  }
+}

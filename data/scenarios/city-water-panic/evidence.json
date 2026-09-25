@@ -1,0 +1,67 @@
+[
+  {
+    "id": "ev_water_spectrometry_report",
+    "name": "Phiếu phân tích quang phổ mẫu nước (Lab Analysis)",
+    "description": "Kết quả phân tích mẫu nước: Sắt Fe tổng = 0.58 mg/L (vượt nhẹ do rỉ sét ống cũ), Xyanua CN- < 0.001 mg/L (âm tính tuyệt đối), Asen < 0.001 mg/L, Clo dư 0.4 mg/L. Nước hoàn toàn không chứa độc tố nguy hiểm.",
+    "location_id": "water_quality_lab",
+    "reliability": 0.99,
+    "source_category": "chemical_analysis",
+    "supports": [
+      "claim_toxicity_negative",
+      "claim_mineral_sediment_origin"
+    ],
+    "contradicts": [
+      "claim_cyanide_poisoning",
+      "claim_mass_poisoning_deaths"
+    ],
+    "unlock_condition": "Kiểm tra phòng xét nghiệm sau khi phỏng vấn Dược sĩ Quỳnh."
+  },
+  {
+    "id": "ev_valve_pressure_log",
+    "name": "Nhật ký áp lực trạm bơm & hiện trường van 9",
+    "description": "Bản ghi áp lực đường ống: Van xả áp số 9 rách gioăng lúc 06:15 gây sụt áp đột ngột tạo dòng xoáy sục cáu cặn oxit sắt bám đáy ống. Đã cô lập van và thay gioăng hoàn tất lúc 08:30.",
+    "location_id": "pump_station",
+    "reliability": 0.98,
+    "source_category": "engineering_record",
+    "supports": [
+      "claim_mineral_sediment_origin",
+      "claim_water_discoloration_occurred"
+    ],
+    "contradicts": [
+      "claim_cyanide_poisoning"
+    ],
+    "unlock_condition": "Khám nghiệm trạm bơm sau khi nói chuyện với Kỹ sư trưởng Thành hoặc Công nhân Đức."
+  },
+  {
+    "id": "ev_clinic_toxicology_clearance",
+    "name": "Sổ theo dõi khám bệnh Trạm Y Tế",
+    "description": "Báo cáo y tế phường: Tiếp nhận 15 người dân, 100% bệnh nhân sinh hiệu bình thường, không có triệu chứng ngộ độc xyanua; 0 ca cấp cứu chuyển tuyến, 0 ca tử vong.",
+    "location_id": "local_clinic",
+    "reliability": 0.99,
+    "source_category": "medical_clearance",
+    "supports": [
+      "claim_zero_fatalities"
+    ],
+    "contradicts": [
+      "claim_mass_poisoning_deaths"
+    ],
+    "unlock_condition": "Xem hồ sơ tại trạm y tế sau khi gặp Bác sĩ Mai."
+  },
+  {
+    "id": "ev_env_independent_certificate",
+    "name": "Chứng thư kiểm định độc lập Sở TN&MT",
+    "description": "Biên bản kiểm tra độc lập tại 5 điểm cấp nước khu dân cư xác nhận các chỉ số lý hóa đã trở lại ngưỡng an toàn chuẩn QCVN 01-1:2018/BYT sau khi hệ thống xả đáy.",
+    "location_id": "environment_office",
+    "reliability": 0.98,
+    "source_category": "environmental_audit",
+    "supports": [
+      "claim_water_flushed_clear",
+      "claim_toxicity_negative"
+    ],
+    "contradicts": [
+      "claim_water_plant_coverup",
+      "claim_citywide_water_cutoff_month"
+    ],
+    "unlock_condition": "Lấy tại văn phòng Sở TN&MT sau khi trao đổi với Thanh tra Trâm."
+  }
+]

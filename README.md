@@ -53,18 +53,44 @@ npm run dev
 ```
 
 ### 3. Headless Simulation Engine
-Run the simulation engine without web UI to simulate rumor propagation and test scenarios:
+Run the simulation engine without web UI to simulate rumor propagation:
 ```bash
 cd backend
 go run ./cmd/sim
 ```
 
 ### 4. Scenario Validation
-Verify scenario integrity and referential constraints:
+Verify scenario integrity and referential constraints across all 5 built-in scenarios:
 ```bash
 cd backend
 go run ./cmd/scenario-check ../data/scenarios/riverside-factory
+go run ./cmd/scenario-check ../data/scenarios/metro-hospital-outbreak
+go run ./cmd/scenario-check ../data/scenarios/midtown-bank-run
+go run ./cmd/scenario-check ../data/scenarios/subway-line3-standstill
+go run ./cmd/scenario-check ../data/scenarios/city-water-panic
 ```
+
+### 5. Automated Soak Testing (100 Seeds)
+Validate that rumor propagation and social defeat ratios are balanced (>90% defeat rate without player intervention):
+```bash
+# PowerShell
+.\scripts\soak-test.ps1 -Runs 10 -Scenario data/scenarios/metro-hospital-outbreak
+
+# Bash
+./scripts/soak-test.sh 10 10 ../data/scenarios/riverside-factory
+```
+
+---
+
+## 🎭 Scenarios
+
+| Scenario ID | Title | Core Incident | Primary Misinformation |
+|---|---|---|---|
+| `riverside-factory` | **Riverside Factory Incident** | Electrical fault fire in storage DB-4 | Chemical explosion, fatalities & management coverup |
+| `metro-hospital-outbreak` | **Metro Hospital Outbreak** | Canteen tuna histamine food poisoning | Biohazard virus leak & secret quarantine |
+| `midtown-bank-run` | **Midtown Bank Run** | Core banking patch deadlock & ATM glitch | Bank insolvency, frozen accounts & CEO fleeing with gold |
+| `subway-line3-standstill` | **Subway Line 3 Standstill** | Track signal short circuit auto-brake | Terrorist nerve gas attack & mass suffocation |
+| `city-water-panic` | **City Water Panic** | Pressure valve gasket rupture sediment surge | Cyanide poisoning & citywide water shutdown |
 
 ---
 

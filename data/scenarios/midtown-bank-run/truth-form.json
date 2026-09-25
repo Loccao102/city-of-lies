@@ -1,0 +1,79 @@
+{
+  "event_type": {
+    "type": "enum",
+    "label": "Bản chất sự cố ngân hàng",
+    "answer": "tech_outage",
+    "options": [
+      {
+        "value": "tech_outage",
+        "label": "Gián đoạn kỹ thuật hệ thống Core Banking"
+      },
+      {
+        "value": "bank_insolvency",
+        "label": "Ngân hàng mất thanh khoản / phá sản"
+      },
+      {
+        "value": "cyber_heist",
+        "label": "Vụ trộm mạng quy mô lớn"
+      },
+      {
+        "value": "unknown",
+        "label": "Chưa xác định"
+      }
+    ]
+  },
+  "cause_category": {
+    "type": "enum",
+    "label": "Nguyên nhân chính",
+    "answer": "core_banking_deadlock",
+    "options": [
+      {
+        "value": "core_banking_deadlock",
+        "label": "Xung đột deadlock cơ sở dữ liệu khi nâng cấp bản vá v4.12"
+      },
+      {
+        "value": "embezzlement",
+        "label": "Ban lãnh đạo tẩu tán tài sản"
+      },
+      {
+        "value": "hacker_ransomware",
+        "label": "Mã độc tống tiền khóa dữ liệu"
+      },
+      {
+        "value": "unknown",
+        "label": "Không rõ"
+      }
+    ]
+  },
+  "major_explosion": {
+    "type": "boolean",
+    "label": "Có sự cố mất trắng tiền gửi / kho quỹ bị cướp phá không?",
+    "answer": false
+  },
+  "fatalities": {
+    "type": "integer",
+    "label": "Số người thương vong thực tế",
+    "answer": 0,
+    "min": 0,
+    "max": 10
+  },
+  "management_issue": {
+    "type": "enum",
+    "label": "Trách nhiệm quản trị",
+    "answer": "untested_migration_in_production",
+    "options": [
+      {
+        "value": "untested_migration_in_production",
+        "label": "Nâng cấp hệ thống trực tiếp trong giờ giao dịch mà chưa test tải kỹ"
+      },
+      {
+        "value": "fraudulent_operations",
+        "label": "Hành vi lừa đảo chiếm đoạt tài sản"
+      },
+      {
+        "value": "none",
+        "label": "Không có sai sót"
+      }
+    ]
+  }
+}
