@@ -87,8 +87,8 @@ Hiện tại game đang chạy trên **In-Memory Simulation Engine** siêu tốc
 - [ ] **Triển khai Demo lên Cloud**:
   - Deploy Backend Go lên Render / Fly.io / Railway.
   - Deploy Frontend Next.js lên Vercel / Cloudflare Pages.
-- [ ] **Chụp ảnh Screenshots & Quay video Demo**:
-  - Bổ sung ảnh chụp giao diện bản đồ 3D, thanh HUD cảnh báo, sổ tay điều tra và màn hình báo cáo After-Action Report vào `README.md`.
+- [x] **Chụp ảnh Screenshots & Quay video Demo**:
+  - Bổ sung thư viện ảnh chụp giao diện bản đồ 3D, chọn kịch bản, phỏng vấn nhân vật, kiểm tra hiện trường và thu thập bằng chứng vào `README.md` (`docs/screenshots/`).
 
 ---
 

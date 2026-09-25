@@ -24,6 +24,22 @@ As the player, an independent investigator, you must interview witnesses, inspec
 
 ---
 
+## 📸 Gameplay & Interface Gallery
+
+| 🏙️ 3D Isometric District Simulation | 🎭 Dynamic Scenario Selection |
+|:---:|:---:|
+| ![Game Main Screen](docs/screenshots/game_main_screen.png) | ![Landing Page](docs/screenshots/landing_page.png) |
+
+| 💬 NPC Dialogue & KnowledgeGuard | 🔍 Location Inspection & Scene Analysis |
+|:---:|:---:|
+| ![Dialogue Interview](docs/screenshots/dialogue_interview.png) | ![Location Modal](docs/screenshots/location_modal.png) |
+
+| 📂 Evidence Discovery & Forensic Chain of Custody |
+|:---:|
+| ![Evidence Found](docs/screenshots/evidence_found.png) |
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
