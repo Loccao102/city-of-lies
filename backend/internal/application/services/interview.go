@@ -73,6 +73,16 @@ func (s *InterviewService) Execute(ctx context.Context, sessionID, agentID, quer
 		allowedEvidence = append(allowedEvidence, "ev_worker_testimony")
 	}
 
+	// For other scenarios, match undiscovered evidence at the agent's current location
+	if len(allowedEvidence) == 0 {
+		for _, ev := range engine.Evidence {
+			if !ev.Discovered && ev.LocationID != "" && ev.LocationID == targetAgent.CurrentLocationID {
+				allowedEvidence = append(allowedEvidence, ev.ScenarioEvidenceID)
+				break
+			}
+		}
+	}
+
 	dCtx := dialogue.BuildDialogueContext(dialogue.AgentContextInput{
 		Agent:                    *targetAgent,
 		KnownClaims:              knownClaims,

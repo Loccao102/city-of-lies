@@ -19,7 +19,7 @@
 | **Phase 7** | Frontend Shell & State Management | ✅ **Hoàn thành** | Next.js 15, React 19, Zustand |
 | **Phase 8** | Investigation Mechanics (Interview, Notebook, Truth) | ✅ **Hoàn thành** | Đầy đủ modal & tương tác |
 | **Phase 9** | 3D World (Isometric Three.js Canvas) | ✅ **Hoàn thành** | 12 địa điểm, 20 agents, rumor pulse |
-| **Phase 10** | External LLM Integration (OpenAI / Claude / Gemini) | 🟡 **Chờ API Key** | Template Provider đã chạy tốt; chờ cắm Key thật |
+| **Phase 10** | Dynamic LLM Integration (OpenAI, Gemini, Groq, Ollama, OpenRouter) | ✅ **Hoàn thành** | Đa nhà cung cấp, KnowledgeGuard chống hallucination, Fallback an toàn |
 | **Phase 11** | Cân bằng tự động (Soak Test), Visual Polish & Âm thanh | ✅ **Hoàn thành** | 100-seed soak test PASS (100%), Web Audio engine, strobe lights |
 | **Phase 12** | CI/CD GitHub Actions & Demo Deployment | ✅ **Hoàn thành** | GitHub Actions matrix (Go + Next.js build + Soak check) |
 | **Phase 13** | Multi-Scenario System & Random Scenario Picker | ✅ **Hoàn thành** | 5 kịch bản hoàn chỉnh (Riverside, Metro Hospital, Midtown Bank, Subway Line 3, City Water), chế độ bốc ngẫu nhiên mỗi lần chơi |
@@ -39,18 +39,24 @@ Hiện tại game đang chạy trên **In-Memory Simulation Engine** siêu tốc
 
 ---
 
-### 2. Phase 10 — Tích hợp LLM Động (OpenAI / Gemini / Claude)
-Game hiện đang sử dụng **Deterministic Template Dialogue Provider** (miễn phí, không tốn token, phản hồi tức thì và an toàn tuyệt đối theo luật Locked Decisions). Khi muốn bật AI đối thoại tự nhiên:
-- [ ] Điền API Key vào file `.env`:
-  ```bash
-  CITYOFLIES_LLM_ENABLED=true
-  CITYOFLIES_LLM_PROVIDER=openai
-  CITYOFLIES_LLM_BASE_URL=https://api.openai.com/v1
-  CITYOFLIES_LLM_API_KEY=sk-...
-  CITYOFLIES_LLM_MODEL=gpt-4o-mini
-  ```
-- [ ] Kiểm thử `KnowledgeGuard` để đảm bảo model không rò rỉ Ground Truth bí mật của Server hoặc bịa đặt số liệu người chết sai lệch với trí nhớ của NPC.
-- [ ] Kiểm tra cơ chế Fallback: Nếu API bị timeout hoặc rate limit, hệ thống tự động rơi về Template Provider mà không làm đứt đoạn màn chơi.
+### 2. Phase 10 — Tích hợp LLM Động (OpenAI / Gemini / Groq / Ollama / OpenRouter)
+- [x] **Dynamic LLM Dialogue Provider** (`backend/internal/game/dialogue/openai_compatible.go`):
+  - Tự động nhận diện cấu hình endpoint mặc định và model đề xuất cho `openai`, `gemini`, `groq`, `ollama`, `openrouter`.
+  - Làm sạch code fences markdown (` ```json ... ``` `) từ đầu ra của các mô hình LLM.
+  - Tự động tiêm thông tin danh tính NPC (`Name`, `Role`, `Context`) và yêu cầu hội thoại tự nhiên bằng tiếng Việt.
+- [x] **KnowledgeGuard Chống Rò Rỉ & Hallucination**:
+  - Kiểm tra Intent, Emotion, giới hạn độ dài câu nói.
+  - Nghiêm cấm bịa đặt Claim ngoài danh sách KnownClaims của NPC.
+  - Nghiêm cấm tiết lộ Evidence trái phép ngoài AllowedRevealEvidenceIDs.
+- [x] **Cơ Chế Graceful Fallback Tuyệt Đối**:
+  - Tự động chuyển tiếp về Deterministic Template Provider khi gặp lỗi mạng, HTTP 500, timeout hoặc LLM vi phạm KnowledgeGuard. Đảm bảo game không bao giờ crash hoặc gián đoạn màn chơi.
+- [x] **Khám Phá Vật Chứng Đa Kịch Bản (Dynamic Allowed Evidence)**:
+  - Khái quát hóa hàm phỏng vấn (`backend/internal/application/services/interview.go`), cho phép NPC ở cả 5 kịch bản tự động chia sẻ manh mối tại địa điểm thực tế của họ khi đạt điều kiện.
+- [x] **Bộ Kiểm Thử Đơn Vị Đầy Đủ (Unit Tests)**:
+  - `TestDynamicLLMProviderAutoConfig`: Kiểm tra cấu hình mặc định cho các nhà cung cấp.
+  - `TestDynamicLLMProviderSuccessAndCodeFences`: Kiểm tra parse JSON chuẩn khi được bao bọc trong code block.
+  - `TestDynamicLLMProviderGuardRejectionFallback`: Xác minh phát hiện và từ chối claim giả mạo của LLM.
+  - `TestDynamicLLMProviderNetworkFailureFallback`: Xác minh fallback khi mock server trả về HTTP 500.
 
 ---
 

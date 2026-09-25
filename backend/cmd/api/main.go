@@ -11,6 +11,7 @@ import (
 	"syscall"
 	"time"
 
+	"city-of-lies/backend/internal/application/ports"
 	"city-of-lies/backend/internal/application/services"
 	"city-of-lies/backend/internal/config"
 	"city-of-lies/backend/internal/game/dialogue"
@@ -66,8 +67,25 @@ func main() {
 	sessionManager := simulation.NewMultiScenarioSessionManager(bundles, defaultBundle, cfg)
 
 	// 5. Initialize Dialogue Provider
-	var dialProvider *dialogue.TemplateProvider
-	dialProvider = dialogue.NewTemplateProvider()
+	var dialProvider ports.DialogueProvider
+	if cfg.LLM.Enabled && cfg.LLM.Provider != "template" {
+		logger.Info("initializing dynamic LLM dialogue provider",
+			slog.String("provider", cfg.LLM.Provider),
+			slog.String("baseURL", cfg.LLM.BaseURL),
+			slog.String("model", cfg.LLM.Model),
+		)
+		dialProvider = dialogue.NewDynamicLLMProvider(
+			cfg.LLM.Provider,
+			cfg.LLM.BaseURL,
+			cfg.LLM.APIKey,
+			cfg.LLM.Model,
+			cfg.LLM.Timeout,
+			cfg.LLM.RetryCount,
+		)
+	} else {
+		logger.Info("using deterministic template dialogue provider")
+		dialProvider = dialogue.NewTemplateProvider()
+	}
 
 	// 6. Initialize Realtime WebSocket Hub
 	hub := realtime.NewHub()
